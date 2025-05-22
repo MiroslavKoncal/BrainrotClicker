@@ -1,29 +1,36 @@
-let score = localStorage.getItem("score") ? JSON.parse(localStorage.getItem("score")) : 1000;
-let score_label = document.getElementById("score") || { innerHTML: "Error: Element not found!" };
+let score = localStorage.getItem("score") ? JSON.parse(localStorage.getItem("score")) : 0;
+let score_label = document.getElementById("score") || { innerHTML: "Error: neni element!" };
+let cps_label = document.getElementById("cps") || { innerHTML: "Neni element!" };
 
 
 const upgrades =
     {
         crit:
             {
-                price: 500,
-                value: JSON.parse(localStorage.getItem("crit")) || 0,
+                price: JSON.parse(localStorage.getItem("critPrice")) || 100,
+                value: JSON.parse(localStorage.getItem("critValue")) || 0,
                 priceMultiplier: 3,
                 scoreMultiplier: 5
             },
         click:
             {
-                price: 20,
-                value: JSON.parse(localStorage.getItem("click")) || 1,
+                price: JSON.parse(localStorage.getItem("clickPrice")) || 10,
+                value: JSON.parse(localStorage.getItem("clickValue")) || 1,
                 priceMultiplier: 3,
-                scoreMultiplier: 2
+                scoreMultiplier: 1.5
             },
         critValue:
             {
-                price: 1000,
-                value: JSON.parse(localStorage.getItem("critValue")) || 10,
+                price: JSON.parse(localStorage.getItem("critValuePrice")) || 1_000,
+                value: JSON.parse(localStorage.getItem("critValueValue")) || 10,
                 priceMultiplier: 2,
                 scoreMultiplier: 2
+            },
+        prestige:
+            {
+                price: JSON.parse(localStorage.getItem("prestigePrice")) || 100_000,
+                value: JSON.parse(localStorage.getItem("prestigeValue")) || 1,
+                priceMultiplier: 5
             }
 };
 
@@ -32,64 +39,65 @@ const animals =
         tung:
             {
                 name: "Tung Tung Sahur",
-                count: JSON.parse(localStorage.getItem("tung")) || 0,
-                price: 10,
-                priceMultiplier: 1.5,
-                scoreValue: 1
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceMultiplier: 1.75,
+                scoreValue: 100,
             },
-        tralalero:
-            {
-                name: "Tralalero Tralala",
-                count: JSON.parse(localStorage.getItem("tralalero")) || 0,
-                price: 20,
-                priceMultiplier: 1.6,
-                scoreValue: 3
-            },
-        lirili:
-            {
-                name: "Lirili Larila",
-                count: JSON.parse(localStorage.getItem("lirili")) || 0,
-                price: 30,
-                priceMultiplier: 1.7,
-                scoreValue: 5
-            },
-        patapim:
-            {
-                name: "br br patapim",
-                count: JSON.parse(localStorage.getItem("patapim")) || 0,
-                price: 50,
-                priceMultiplier: 1.2,
-                scoreValue: 25
-            }
     };
 
-function clicker(count = 1, value = upgrades["click"].value, multiplier = upgrades["click"].scoreMultiplier)
+
+function saveData ()
 {
-    return count * value * multiplier;
+    if (!isNaN(score))
+    {
+        localStorage.setItem("score", JSON.stringify(score));
+    }
+
+    localStorage.setItem("tungCount", JSON.stringify(animals["tung"].count));
+    localStorage.setItem("tungPrice", JSON.stringify(animals["tung"].price))
+
+    localStorage.setItem("prestigePrice", JSON.stringify(upgrades["prestige"].price));
+    localStorage.setItem("prestigeValue", JSON.stringify(upgrades["prestige"].value));
+
+    localStorage.setItem("critPrice", JSON.stringify(upgrades["crit"].price));
+    localStorage.setItem("critValue", JSON.stringify(upgrades["crit"].value));
+
+    localStorage.setItem("clickPrice", JSON.stringify(upgrades["click"].price));
+    localStorage.setItem("clickValue", JSON.stringify(upgrades["click"].value));
+
+    localStorage.setItem("critValuePrice", JSON.stringify(upgrades["critValue"].price));
+    localStorage.setItem("critValueValue", JSON.stringify(upgrades["critValue"].value));
 }
 
-
-
-function critChance ()
+function clearData(clearPrestige = false)
 {
-    let randomChance = Math.floor(Math.random() * 101);
-    if (randomChance <= upgrades["crit"].value)
+    localStorage.clear();
+
+    score = 0;
+
+    upgrades["crit"].value = 0;
+    upgrades["crit"].price = 500;
+
+    upgrades["click"].value = 1;
+    upgrades["click"].price = 20;
+
+    upgrades["critValue"].value = 10;
+    upgrades["critValue"].price = 1000;
+
+    animals["tung"].count = 0;
+    animals["tung"].price = 10;
+
+    upgrades["prestige"].price = 100_000;
+
+    if (clearPrestige)
     {
-        return clicker(upgrades["click"].value * upgrades["critValue"].value);
+        upgrades["prestige"].value = 1
     }
-    else
-    {
-        return clicker();
-    }
-}
 
 
-function callClicker ()
-{
-    score += critChance();
     updateScoreDisplay();
 }
-
 
 function buyAnimal (animalKey)
 {
@@ -107,6 +115,45 @@ function buyAnimal (animalKey)
     }
 }
 
+function playerClicker(crit = false)
+{
+    let cps = 0
+    if (crit)
+    {
+        cps = upgrades["click"].value * upgrades["critValue"].value * upgrades["prestige"].value;
+    }
+    else
+    {
+        cps = upgrades["click"].value * upgrades["prestige"].value
+    }
+    cps_label.innerHTML = cps;
+    return cps;
+}
+
+function critChance ()
+{
+    let randomChance = Math.floor(Math.random() * 101);
+    if (randomChance <= upgrades["crit"].value)
+    {
+        return playerClicker(true);
+    }
+    else
+    {
+        return playerClicker();
+    }
+}
+
+
+function callClicker ()
+{
+    score += critChance();
+    updateScoreDisplay();
+}
+
+
+
+
+
 function upgrade (key)
 {
     if (score >= upgrades[key].price) {
@@ -122,28 +169,31 @@ function upgrade (key)
     updateScoreDisplay();
 }
 
-function saveData ()
-{
-    if (!isNaN(score))
-    {
-        localStorage.setItem("score", JSON.stringify(score));
-    }
-    localStorage.setItem("crit", JSON.stringify(upgrades["crit"].value));
-    localStorage.setItem("click", JSON.stringify(upgrades["click"].value));
-    localStorage.setItem("critValue", JSON.stringify(upgrades["critValue"].value));
-    localStorage.setItem("tung", JSON.stringify(animals["tung"].count));
-    localStorage.setItem("tralalero", JSON.stringify(animals["tralalero"].count));
-    localStorage.setItem("lirili", JSON.stringify(animals["lirili"].count));
-    localStorage.setItem("patapim", JSON.stringify(animals["patapim"].count));
 
+function prestige ()
+{
+    if (score >= upgrades["prestige"].price)
+    {
+        upgrades["prestige"].value *= 10;
+        upgrades["prestige"].price = priceChange(upgrades["prestige"].price, upgrades["prestige"].priceMultiplier);
+        console.log(`Nová cena ${upgrades["prestige"].price}, nova value ${upgrades["prestige"].value}`);
+        clearData();
+    }
+    else
+    {
+        console.log(`cena ${upgrades["prestige"].price}`);
+    }
 }
+
 
 function priceChange (price, multiplier)
 {
     return Math.round(price * multiplier);
 }
 
-function addScoreFromAnimals () {
+
+function addScoreFromAnimals ()
+{
     for (let key in animals) {
         let animal = animals[key];
         if (animal.count > 0) {
@@ -158,35 +208,6 @@ function updateScoreDisplay ()
 {
     score_label.innerHTML = score;
     saveData();
-}
-
-function clearData() {
-    localStorage.clear();
-
-    score = 1000;
-
-    upgrades["crit"].value = 0;
-    upgrades["crit"].price = 500;
-
-    upgrades["click"].value = 1;
-    upgrades["click"].price = 20;
-
-    upgrades["critValue"].value = 10;
-    upgrades["critValue"].price = 1000;
-
-    animals["tung"].count = 0;
-    animals["tung"].price = 10;
-
-    animals["tralalero"].count = 0;
-    animals["tralalero"].price = 20;
-
-    animals["lirili"].count = 0;
-    animals["lirili"].price = 30;
-
-    animals["patapim"].count = 0;
-    animals["patapim"].price = 50;
-
-    updateScoreDisplay();
 }
 
 

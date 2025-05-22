@@ -7,16 +7,15 @@
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
         #score { font-size: 24px; font-weight: bold; }
+        #cps { font-size: 18px; font-weight: bold; }
         button { padding: 10px 20px; font-size: 16px; }
     </style>
 </head>
 <body>
     <div id="score">0</div>
+    <div id="cps">0</div>
 
-    <button onclick="buyAnimal('tung')">Buy Tung Tung Sahur</button>
-    <button onclick="buyAnimal('tralalero')">Buy Tralalero Tralala</button>
-    <button onclick="buyAnimal('lirili')">Buy Lirili Larila</button>
-    <button onclick="buyAnimal('patapim')">br br patapim</button>
+    <button onclick="buyAnimal('tung')">Tung Tung Sahur</button><x></x>
 
     <br>
 
@@ -27,7 +26,8 @@
     <br>
 
     <button onclick="callClicker()">Click</button>
-    <button onclick="clearData()">reset</button>
+    <button onclick="prestige()">prestige</button>
+    <button onclick="clearData(true)">reset</button>
 
     <script src="index2.js"></script>
 </body>
