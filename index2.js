@@ -39,6 +39,7 @@ const animals =
         tung:
             {
                 name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
                 count: JSON.parse(localStorage.getItem("tungCount")) || 0,
                 price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
                 priceMultiplier: 1.75,
@@ -88,13 +89,11 @@ function clearData(clearPrestige = false)
     animals["tung"].count = 0;
     animals["tung"].price = 10;
 
-    upgrades["prestige"].price = 100_000;
-
     if (clearPrestige)
     {
+        upgrades["prestige"].price = 100_000;
         upgrades["prestige"].value = 1
     }
-
 
     updateScoreDisplay();
 }
@@ -103,14 +102,17 @@ function buyAnimal (animalKey)
 {
     let animal = animals[animalKey];
 
-    if (score >= animal.price) {
+    if (score >= animal.price)
+    {
         score -= animal.price;
         updateScoreDisplay();
         animal.count += 1;
         animal.price = priceChange(animal.price, animal.priceMultiplier);
-
+        animal.sound.play();
         console.log(`Koupeno ${animal.name}. Počet: ${animal.count}, nová cena: ${animal.price}`);
-    } else {
+    }
+    else
+    {
         console.log(`Není dost peněz na koupi ${animal.name}. Potřeba: ${animal.price}, nyní: ${score}`);
     }
 }
@@ -156,10 +158,14 @@ function callClicker ()
 
 function upgrade (key)
 {
-    if (score >= upgrades[key].price) {
-        if (key === "crit") {
+    if (score >= upgrades[key].price)
+    {
+        if (key === "crit")
+        {
             upgrades[key].value += upgrades["crit"].scoreMultiplier;
-        } else {
+        }
+        else
+        {
             upgrades[key].value = Math.round(upgrades[key].value * upgrades[key].scoreMultiplier);
         }
         score -= upgrades[key].price;
@@ -194,9 +200,11 @@ function priceChange (price, multiplier)
 
 function addScoreFromAnimals ()
 {
-    for (let key in animals) {
+    for (let key in animals)
+    {
         let animal = animals[key];
-        if (animal.count > 0) {
+        if (animal.count > 0)
+        {
             score += animal.count * animal.scoreValue;
         }
     }
@@ -209,6 +217,27 @@ function updateScoreDisplay ()
     score_label.innerHTML = score;
     saveData();
 }
+
+const audio = new Audio("./media/theme_music.mp3");
+// audio se opakuje nekonecnekrat
+audio.loop = true;
+let isPlaying = false;
+
+document.getElementById("playButton").addEventListener("click", () => {
+    if (isPlaying)
+    {
+        // zastavi pisen a nastavy jeji cas na zacatek
+        audio.pause();
+        audio.currentTime = 0;
+        document.getElementById("playButton").textContent = "zapnout song";
+    } else {
+        // zapne pisen
+        audio.play();
+        document.getElementById("playButton").textContent = "zastavit song";
+    }
+    // nastavi druhou moznost pro podminku
+    isPlaying = !isPlaying;
+});
 
 
 setInterval(() => addScoreFromAnimals(), 1000);
