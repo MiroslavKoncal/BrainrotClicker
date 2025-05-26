@@ -9,26 +9,58 @@
         #score { font-size: 24px; font-weight: bold; }
         #cps { font-size: 18px; font-weight: bold; }
         button { padding: 10px 20px; font-size: 16px; }
+        .descriptionText { visibility: hidden; }
+        .description:hover .descriptionText { visibility: visible; }
+
     </style>
 </head>
 <body>
     <div id="score">0</div>
     <div id="cps">0</div>
 
-    <button onclick="buyAnimal('tung')">Tung Tung Sahur</button><x></x>
+    <div>
+        <p>tung tung sahur</p>
+        <button onclick="buyAnimal('tung')">Tung Tung Sahur</button>
+        <p id="tungPriceValue"></p>
+        <p id="tungCountValue"></p>
+    </div>
 
     <br>
 
-    <button onclick="upgrade('click')">vylepsit click</button>
-    <button onclick="upgrade('crit')">vylepsit crit</button>
-    <button onclick="upgrade('critValue')">vylepsit crit Value</button>
+    <div>
+        <p>výdělek z kliknutí</p>
+        <button onclick="upgrade('click')">vylepšit</button>
+        <p id="clickPrice"></p>
+        <p id="clickValue"></p>
+    </div>
+    <div>
+        <p>šance na kritický zásah</p>
+        <button onclick="upgrade('crit')">vylepšit</button>
+        <p id="critPrice"></p>
+        <p id="critValue"></p>
+    </div>
+    <div>
+        <p>vydělek z kritického zásahu</p>
+        <button onclick="upgrade('critValue')">vylepšit</button>
+        <p id="critValuePrice"></p>
+        <p id="critValueValue"></p>
+    </div>
 
     <br>
 
-    <button onclick="callClicker()">Click</button>
-    <button onclick="prestige()">prestige</button>
-    <button onclick="clearData(true)">reset</button>
-    <button id="playButton">click</button>
+    <button onclick="callClicker()">kliknout</button>
+    <div class = "description">
+        <button onclick="prestige()">prestiž</button>
+        <span class="descriptionText">restartuje postup, ale zvyší skóre za klik a zvířátka</span>
+    </div>
+
+    <div>
+        <button onclick="clearData(true)">restartovat celkový postup</button>
+    </div>
+
+    <div>
+        <button id="playButton">zapnout pisničku</button>
+    </div>
 
     <script src="index2.js"></script>
 </body>
