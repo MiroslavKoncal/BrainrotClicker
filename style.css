@@ -1,0 +1,36 @@
+#navigace{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-block: 0px;
+    padding-inline: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 10px, rgba(0, 0, 0, 0.23) 0px 6px 6px; 
+    border-radius: 20px;
+}
+
+#nazevProjektu{
+    font-size: 28px; 
+}
+
+nav{
+    float: right;
+}
+
+a{
+    text-decoration: none;
+    padding-inline: 20px;
+    padding-block: 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+}
+a:hover{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px -12px inset, rgba(0, 0, 0, 0.23) 0px 6px 6px inset; 
+}
+
+/* ^navigace^ */
+
+body{
+    padding: 0px;
+}
