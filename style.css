@@ -87,22 +87,25 @@ button {
 
 /* upgrady, tlačítko, pravý panel */
 
-.mainContainer{
+.mainContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-block: 200px;
 }
 
-.leftPanel{
+.leftPanel {
+    flex: 1;
     text-align: left;
 }
 
-.buttonContainer{
+.buttonContainer {
+    flex: 0 0 auto;
     text-align: center;
 }
 
-.rightPanel{
+.rightPanel {
+    flex: 1;
     text-align: right;
 }
 
