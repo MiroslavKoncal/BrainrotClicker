@@ -35,23 +35,25 @@ const upgrades =
             {
                 price: JSON.parse(localStorage.getItem("prestigePrice")) || 100_000,
                 value: JSON.parse(localStorage.getItem("prestigeValue")) || 1,
+                priceLabel: document.getElementById("prestigePrice"),
+                valueLabel: document.getElementById("prestigeValue"),
                 priceMultiplier: 5
             }
-};
+    };
 
 const animals =
     {
-    tung:
-        {
-        name: "Tung Tung Sahur",
-        sound: new Audio("./media/tung.mp3"),
-        count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-        countLabel: document.getElementById("tungCountValue"),
-        price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-        priceLabel: document.getElementById("tungPriceValue"),
-        priceMultiplier: 1.75,
-        scoreValue: 100,
-        }
+        tung:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
+            }
     };
 
 function saveData ()
