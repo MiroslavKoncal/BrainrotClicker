@@ -50,7 +50,7 @@ const animals =
         tung:
             {
                 name: "Tung Tung Sahur",
-                sound: new Audio("./media/tung.mp3"),
+                sound: new Audio("./media/zvuky/tung.mp3"),
                 count: JSON.parse(localStorage.getItem("tungCount")) || 0,
                 countLabel: document.getElementById("tungCountValue"),
                 price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
@@ -60,56 +60,56 @@ const animals =
             },
         tralala:
             {
-                name: "Tung Tung Sahur",
-                sound: new Audio("./media/tung.mp3"),
-                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-                countLabel: document.getElementById("tungCountValue"),
-                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-                priceLabel: document.getElementById("tungPriceValue"),
+                name: "tralalero tralala",
+                sound: new Audio("./media/zvuky/tralala.mp3"),
+                count: JSON.parse(localStorage.getItem("tralalaCount")) || 0,
+                countLabel: document.getElementById("tralalaCountValue"),
+                price: JSON.parse(localStorage.getItem("tralalaPrice")) || 30,
+                priceLabel: document.getElementById("tralalaPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
             },
         bombardino:
             {
-                name: "Tung Tung Sahur",
-                sound: new Audio("./media/tung.mp3"),
-                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-                countLabel: document.getElementById("tungCountValue"),
-                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-                priceLabel: document.getElementById("tungPriceValue"),
+                name: "bombardino crocodilo",
+                sound: new Audio("./media/zvuky/crocodilo.mp3"),
+                count: JSON.parse(localStorage.getItem("bombardinoCount")) || 0,
+                countLabel: document.getElementById("bombardinoCountValue"),
+                price: JSON.parse(localStorage.getItem("bombardinoPrice")) || 30,
+                priceLabel: document.getElementById("bombardinoPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
             },
         lirili:
             {
-                name: "Tung Tung Sahur",
-                sound: new Audio("./media/tung.mp3"),
-                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-                countLabel: document.getElementById("tungCountValue"),
-                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-                priceLabel: document.getElementById("tungPriceValue"),
+                name: "lirili larila",
+                sound: new Audio("./media/zvuky/lirili.mp3"),
+                count: JSON.parse(localStorage.getItem("liriliCount")) || 0,
+                countLabel: document.getElementById("liriliCountValue"),
+                price: JSON.parse(localStorage.getItem("liriliPrice")) || 30,
+                priceLabel: document.getElementById("liriliPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
             },
         patapim:
             {
-                name: "Tung Tung Sahur",
-                sound: new Audio("./media/tung.mp3"),
-                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-                countLabel: document.getElementById("tungCountValue"),
-                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-                priceLabel: document.getElementById("tungPriceValue"),
+                name: "br br patapim",
+                sound: new Audio("./media/zvuky/patapim.mp3"),
+                count: JSON.parse(localStorage.getItem("patapimCount")) || 0,
+                countLabel: document.getElementById("patapimCountValue"),
+                price: JSON.parse(localStorage.getItem("patapimPrice")) || 30,
+                priceLabel: document.getElementById("patapimPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
             },
         bananini:
             {
-                name: "Tung Tung Sahur",
-                sound: new Audio("./media/tung.mp3"),
-                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-                countLabel: document.getElementById("tungCountValue"),
-                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-                priceLabel: document.getElementById("tungPriceValue"),
+                name: "bananini chimpanzini",
+                sound: new Audio("./media/zvuky/bananini.mp3"),
+                count: JSON.parse(localStorage.getItem("bananiniCount")) || 0,
+                countLabel: document.getElementById("bananiniCountValue"),
+                price: JSON.parse(localStorage.getItem("bananiniPrice")) || 30,
+                priceLabel: document.getElementById("bananiniPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
             }
@@ -324,7 +324,7 @@ function updateScoreDisplay ()
 
 
 // přehrávač hudby na pozadí hry
-const audio = new Audio("./media/theme_music.mp3");
+const audio = new Audio("./media/zvuky/theme_music.mp3");
 // audio se opakuje nekonecnekrat
 audio.loop = true;
 let isPlaying = false;
@@ -352,8 +352,9 @@ setInterval(() => {document.getElementById("cps").innerHTML = getTotalCPS();}, 1
 // každou sekundu přičte skóre ze zvířat
 setInterval(() => addScoreFromAnimals(), 1000);
 
-// při načtení okna se aktualizují všechny hodnoty
-window.onload = () =>
-{
+
+document.addEventListener("DOMContentLoaded", () => {
+    score_label = document.getElementById("score");
+    cps_label = document.getElementById("cps");
     updateScoreDisplay();
-};
+});
