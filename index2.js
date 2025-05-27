@@ -312,7 +312,7 @@ function updateScoreDisplay ()
     for (let animal in animals)
     {
         animals[animal].priceLabel.innerHTML = animals[animal].price;
-        animals[animal].countLabel.innerHTML = animals[animal].count;
+        animals[animal].countLabel.innerHTML = animals[animal].count + "x";
     }
     for (let upgrade in upgrades)
     {
