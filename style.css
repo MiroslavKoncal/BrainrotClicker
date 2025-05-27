@@ -80,9 +80,30 @@ button {
 }
 
 #mainButton{
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 100%;
+}
+
+/* upgrady, tlačítko, pravý panel */
+
+.mainContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 200px;
+}
+
+.leftPanel{
+    text-align: left;
+}
+
+.buttonContainer{
+    text-align: center;
+}
+
+.rightPanel{
+    text-align: right;
 }
 
 /* menu zvířat */
