@@ -2,7 +2,8 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <title>Clicker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Score</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -12,7 +13,8 @@
     </header>
 
     <div>
-        <p>Skóre</p>
+        <p id="score"></p>
+        <p id="cps">0</p>
     </div>
 
     <div class="mainContainer">
@@ -27,50 +29,57 @@
         </div>
         
     </div>
-    <!-- menu zvířat -->
+
     <footer class="animalMenu">
         <div class="animalFrame" onclick="buyAnimal('tung')">
-            <p class="animalName">Tung Tung Tung Sahur</p>
+            <p>Tung Tung Tung Sahur</p>
             <img src="./media/sahur.png" alt="Tung Tung Tung Sahur" class="animalImage">
-            <p id="tungCountValue"></p>
             <p id="tungPriceValue"></p>
+            <p id="tungCountValue"></p>
         </div>
-        <div class="animalFrame" onclick="buyAnimal('tralalero')">
-            <p class="animalName">Tralalero Tralala</p>
+        <div class="animalFrame" onclick="buyAnimal('tralala')">
+            <p>Tralalero Tralala</p>
             <img src="./media/tralalero.png" alt="Tralalero Tralala" class="animalImage">
-            <p id="tralaleroCountValue">pocet</p>
-            <p id="tralaleroPriceValue">cena</p>
+            <p id="tralalaPriceValue"></p>
+            <p id="tralalaCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('bombardino')">
-            <p class="animalName">Bombardino Crocodilo</p>
+            <p>Bombardino Crocodilo</p>
             <img src="./media/bombardino.png" alt="Bombardino Crocodilo" class="animalImage">
-            <p id="bombardinoCountValue">pocet</p>
-            <p id="bombardinoPriceValue">cena</p>
+            <p id="bombardinoPriceValue"></p>
+            <p id="bombardinoCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('lirili')">
-            <p class="animalName">Lirili Larila</p>
+            <p>Lirili Larila</p>
             <img src="./media/Lirili_Larila.png" alt="Lirili Larila" class="animalImage">
-            <p id="liriliCountValue">pocet</p>
-            <p id="liriliPriceValue">cena</p>
+            <p id="liriliPriceValue"></p>
+            <p id="liriliCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('patapim')">
-            <p class="animalName">Brr Brr Patapim</p>
-            <img src="./media/patapim.png" alt="Brr Brr Patapim" class="animalImage">
-            <p id="patapimCountValue">pocet</p>
-            <p id="patapimPriceValue">cena</p>
+            <p>Brr Brr Patapim</p>
+            <img src="./media/patapim.png" alt="br br patapim" class="animalImage">
+            <p id="patapimPriceValue"></p>
+            <p id="patapimCountValue"></p>
         </div>
-        <div class="animalFrame" onclick="buyAnimal('chimpanz')">
-            <p class="animalName">Chimpanzini Bananini</p>
+        <div class="animalFrame" onclick="buyAnimal('bananini')">
+            <p>Chimpanzini Bananini</p>
             <img src="./media/Chimpanzini_Bananini.png" alt="Chimpanzini Bananini" class="animalImage">
-            <p id="chimpanzCountValue">pocet</p>
-            <p id="chimpanzPriceValue">cena</p>
+            <p id="bananiniPriceValue"></p>
+            <p id="bananiniCountValue"></p>
         </div>
     </footer>
     <!-- ^ test rozlozeni ^ -->
     <hr>
 
-    <div id="score">0</div>
-    <div id="cps">0</div>
+<!--    <div id="score">0</div>-->
+<!--    <div id="cps">0</div>-->
+
+    <div>
+        <p>tung tung sahur</p>
+        <button onclick="buyAnimal('tung')">Tung Tung Sahur</button>
+<!--        <p id="tungPriceValue"></p>-->
+<!--        <p id="tungCountValue"></p>-->
+    </div>
 
     <br>
 
@@ -95,7 +104,7 @@
 
     <br>
 
-    <button id="mainButton" onclick="callClicker()">kliknout</button>
+<!--    <button id="mainButton" onclick="callClicker()">kliknout</button>-->
     <div class = "description">
         <button onclick="prestige()">prestiž</button>
         <span class="descriptionText">restartuje postup, ale zvyší skóre za klik a zvířátka</span>
