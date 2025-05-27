@@ -238,7 +238,7 @@ function addScoreFromAnimals ()
 
 function updateScoreDisplay ()
 {
-    score_label.innerHTML = score;
+    score_label.innerHTML = "Skóre: " + score;
     for (let animal in animals)
     {
         animals[animal].priceLabel.innerHTML = animals[animal].price;
