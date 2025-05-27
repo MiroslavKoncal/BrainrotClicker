@@ -1,9 +1,10 @@
 let score = localStorage.getItem("score") ? JSON.parse(localStorage.getItem("score")) : 0;
+// najde elementy na stránce pro zobrazení skóre a cps, pokud neexistují vytvoří náhradní objekt s chybovou hláškou
 let score_label = document.getElementById("score") || { innerHTML: "Error: neni element!" };
 let cps_label = document.getElementById("cps") || { innerHTML: "Neni element!" };
 
 
-//dictionary ve kterém se uchovávají všechny vylepšení a jejich cena,násobič ceny, hodnota a váha jejich hodnoty
+// dictionary ve kterém se uchovávají všechny vylepšení a jejich cena,násobič ceny, hodnota a váha jejich hodnoty
 const upgrades =
     {
         crit:
@@ -43,7 +44,7 @@ const upgrades =
             }
     };
 
-
+// dictionary ve kterém se uchovávají všechny zvířata a jejich cena,násobič ceny, hodnota a váha jejich hodnoty
 const animals =
     {
         tung:
@@ -56,9 +57,66 @@ const animals =
                 priceLabel: document.getElementById("tungPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
+            },
+        tralala:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
+            },
+        bombardino:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
+            },
+        lirili:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
+            },
+        patapim:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
+            },
+        bananini:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
             }
     };
 
+
+// uklada data všech cen, počtů apod.
 function saveData ()
 {
     if (!isNaN(score))
@@ -66,6 +124,7 @@ function saveData ()
         localStorage.setItem("score", JSON.stringify(score));
     }
 
+    // uložení dat pro jednotlivé upgrady a zvířata do localStorage
     localStorage.setItem("tungCount", JSON.stringify(animals["tung"].count));
     localStorage.setItem("tungPrice", JSON.stringify(animals["tung"].price))
 
@@ -83,8 +142,10 @@ function saveData ()
 }
 
 
+// vyčistí data (využítí prestige a kompletní reset)
 function clearData(clearPrestige = false)
 {
+    // vyčistí localStorage a resetuje hodnoty
     localStorage.clear();
 
     score = 0;
@@ -101,6 +162,7 @@ function clearData(clearPrestige = false)
     animals["tung"].count = 0;
     animals["tung"].price = 10;
 
+    // pokud se přenáší reset prestiže, nastaví se její základní hodnoty
     if (clearPrestige)
     {
         upgrades["prestige"].price = 100_000;
@@ -111,10 +173,12 @@ function clearData(clearPrestige = false)
 }
 
 
+// do tlačítka vložíme klíč = název zvířete v dictionary
 function buyAnimal(animalKey)
 {
     let animal = animals[animalKey];
 
+    // pokud má uživatel dost skore na koupi změní se cena, počet jednotek, a zahraje se zvuk
     if (score >= animal.price)
     {
         score -= animal.price;
@@ -124,13 +188,10 @@ function buyAnimal(animalKey)
 
         updateScoreDisplay();
     }
-    else
-    {
-        console.log(`Není dost peněz na koupi ${animal.name}. Potřeba: ${animal.price}, nyní: ${score}`);
-    }
 }
 
 
+// spočítá celkový počet CPS ze všech zvířat včetně násobiče prestiže
 function getTotalCPS()
 {
     let cps = 0;
@@ -142,6 +203,7 @@ function getTotalCPS()
 }
 
 
+// funkce která provádí klik hráče a vypočítá klik s kritickým zásahem nebo bez něj
 function playerClicker(crit = false)
 {
     if (crit)
@@ -159,6 +221,7 @@ function playerClicker(crit = false)
 }
 
 
+// funkce pro výpočet šance na kritický zásah
 function critChance ()
 {
     let randomChance = Math.floor(Math.random() * 101);
@@ -173,6 +236,7 @@ function critChance ()
 }
 
 
+// hlavní funkce pro kliknutí (volá se při kliknutí uživatele)
 function callClicker ()
 {
     score += critChance();
@@ -180,16 +244,19 @@ function callClicker ()
 }
 
 
+// nákup upgradu podle klíče
 function upgrade (key)
 {
     if (score >= upgrades[key].price)
     {
+        // u kritického zásahu se hodnota navyšuje lineárně
         if (key === "crit")
         {
             upgrades[key].value += upgrades["crit"].valueMultiplier;
         }
         else
         {
+            // ostatní upgrady násobí svou hodnotu násobičem
             upgrades[key].value = Math.round(upgrades[key].value * upgrades[key].valueMultiplier);
         }
         score -= upgrades[key].price;
@@ -200,13 +267,13 @@ function upgrade (key)
 }
 
 
+// aktivuje prestiž pokud má hráč dostatek skóre
 function prestige ()
 {
     if (score >= upgrades["prestige"].price)
     {
         upgrades["prestige"].value *= 10;
         upgrades["prestige"].price = priceChange(upgrades["prestige"].price, upgrades["prestige"].priceMultiplier);
-        console.log(`Nová cena ${upgrades["prestige"].price}, nova value ${upgrades["prestige"].value}`);
         clearData();
     }
     else
@@ -216,12 +283,14 @@ function prestige ()
 }
 
 
+// zvýšení ceny pomocí násobiče
 function priceChange (price, multiplier)
 {
     return Math.round(price * multiplier);
 }
 
 
+// funkce přičítající skóre od zvířat každou sekundu
 function addScoreFromAnimals ()
 {
     for (let key in animals)
@@ -236,6 +305,7 @@ function addScoreFromAnimals ()
 }
 
 
+// aktualizuje zobrazované hodnoty ve hře
 function updateScoreDisplay ()
 {
     score_label.innerHTML = score;
@@ -253,11 +323,13 @@ function updateScoreDisplay ()
 }
 
 
+// přehrávač hudby na pozadí hry
 const audio = new Audio("./media/theme_music.mp3");
 // audio se opakuje nekonecnekrat
 audio.loop = true;
 let isPlaying = false;
 
+// event listener na tlačítko pro přehrávání nebo zastavení hudby
 document.getElementById("playButton").addEventListener("click", () => {
     if (isPlaying)
     {
@@ -274,10 +346,14 @@ document.getElementById("playButton").addEventListener("click", () => {
     isPlaying = !isPlaying;
 });
 
+// každou sekundu obnoví CPS
 setInterval(() => {document.getElementById("cps").innerHTML = getTotalCPS();}, 1000);
 
+// každou sekundu přičte skóre ze zvířat
 setInterval(() => addScoreFromAnimals(), 1000);
 
-window.onload = () => {
+// při načtení okna se aktualizují všechny hodnoty
+window.onload = () =>
+{
     updateScoreDisplay();
 };
