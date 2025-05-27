@@ -5,17 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicker Score</title>
     <link rel="stylesheet" href="./style.css">
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        #score { font-size: 24px; font-weight: bold; }
-        #cps { font-size: 18px; font-weight: bold; }
-        button { padding: 10px 20px; font-size: 16px; }
-        .descriptionText { visibility: hidden; }
-        .description:hover .descriptionText { visibility: visible; }
-
-    </style>
 </head>
 <body>
+    <header id="navigace">
+        <h1 id="nazevProjektu">Brainrot clicker</h1>
+        <nav><a href="index.html">uvod</a><a href="./strana2.html">strana2</a><a href="./strana3">strana3</a></nav>
+    </header>
     <div id="score">0</div>
     <div id="cps">0</div>
 
@@ -49,7 +44,7 @@
 
     <br>
 
-    <button onclick="callClicker()">kliknout</button>
+    <button id="mainButton" onclick="callClicker()">kliknout</button>
     <div class = "description">
         <button onclick="prestige()">prestiž</button>
         <span class="descriptionText">restartuje postup, ale zvyší skóre za klik a zvířátka</span>

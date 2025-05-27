@@ -1,4 +1,5 @@
-#navigace{
+/* horní panel */
+header{
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -29,8 +30,39 @@ a:hover{
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px -12px inset, rgba(0, 0, 0, 0.23) 0px 6px 6px inset; 
 }
 
-/* ^navigace^ */
+/* obsah */
 
 body{
-    padding: 0px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    justify-content: space-between; 
 }
+
+#score {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#cps {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.descriptionText {
+    visibility: hidden;
+}
+
+.description:hover .descriptionText {
+    visibility: visible;
+}
+
+#mainButton{
+    width: 200px;
+    height: 100px;
+}
+
