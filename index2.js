@@ -2,6 +2,8 @@ let score = localStorage.getItem("score") ? JSON.parse(localStorage.getItem("sco
 let score_label = document.getElementById("score") || { innerHTML: "Error: neni element!" };
 let cps_label = document.getElementById("cps") || { innerHTML: "Neni element!" };
 
+
+//dictionary ve kterém se uchovávají všechny vylepšení a jejich cena,násobič ceny, hodnota a váha jejich hodnoty
 const upgrades =
     {
         crit:
@@ -11,7 +13,7 @@ const upgrades =
                 priceLabel: document.getElementById("critPrice"),
                 valueLabel: document.getElementById("critValue"),
                 priceMultiplier: 3,
-                scoreMultiplier: 5
+                valueMultiplier: 5
             },
         click:
             {
@@ -20,7 +22,7 @@ const upgrades =
                 priceLabel: document.getElementById("clickPrice"),
                 valueLabel: document.getElementById("clickValue"),
                 priceMultiplier: 3,
-                scoreMultiplier: 1.5
+                valueMultiplier: 1.5
             },
         critValue:
             {
@@ -29,29 +31,32 @@ const upgrades =
                 priceLabel: document.getElementById("critValuePrice"),
                 valueLabel: document.getElementById("critValueValue"),
                 priceMultiplier: 2,
-                scoreMultiplier: 2
+                valueMultiplier: 2
             },
         prestige:
             {
                 price: JSON.parse(localStorage.getItem("prestigePrice")) || 100_000,
                 value: JSON.parse(localStorage.getItem("prestigeValue")) || 1,
+                priceLabel: document.getElementById("prestigePrice"),
+                valueLabel: document.getElementById("prestigeValue"),
                 priceMultiplier: 5
             }
-};
+    };
+
 
 const animals =
     {
-    tung:
-        {
-        name: "Tung Tung Sahur",
-        sound: new Audio("./media/tung.mp3"),
-        count: JSON.parse(localStorage.getItem("tungCount")) || 0,
-        countLabel: document.getElementById("tungCountValue"),
-        price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
-        priceLabel: document.getElementById("tungPriceValue"),
-        priceMultiplier: 1.75,
-        scoreValue: 100,
-        }
+        tung:
+            {
+                name: "Tung Tung Sahur",
+                sound: new Audio("./media/tung.mp3"),
+                count: JSON.parse(localStorage.getItem("tungCount")) || 0,
+                countLabel: document.getElementById("tungCountValue"),
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                priceLabel: document.getElementById("tungPriceValue"),
+                priceMultiplier: 1.75,
+                scoreValue: 100,
+            }
     };
 
 function saveData ()
@@ -76,6 +81,7 @@ function saveData ()
     localStorage.setItem("critValuePrice", JSON.stringify(upgrades["critValue"].price));
     localStorage.setItem("critValueValue", JSON.stringify(upgrades["critValue"].value));
 }
+
 
 function clearData(clearPrestige = false)
 {
@@ -104,6 +110,7 @@ function clearData(clearPrestige = false)
     updateScoreDisplay();
 }
 
+
 function buyAnimal(animalKey)
 {
     let animal = animals[animalKey];
@@ -124,7 +131,6 @@ function buyAnimal(animalKey)
 }
 
 
-
 function getTotalCPS()
 {
     let cps = 0;
@@ -138,20 +144,20 @@ function getTotalCPS()
 
 function playerClicker(crit = false)
 {
-    let clicks = 0
     if (crit)
     {
-        clicks = upgrades["click"].value * upgrades["critValue"].value * upgrades["prestige"].value;
+        let clicks = upgrades["click"].value * upgrades["critValue"].value * upgrades["prestige"].value;
+        cps_label.innerHTML = getTotalCPS() + clicks;
+        return clicks;
     }
     else
     {
-        clicks = upgrades["click"].value * upgrades["prestige"].value
+        let clicks = upgrades["click"].value * upgrades["prestige"].value
+        cps_label.innerHTML = getTotalCPS() + clicks;
+        return clicks;
     }
-    cps_label.innerHTML = getTotalCPS() + clicks;
-
-
-    return clicks;
 }
+
 
 function critChance ()
 {
@@ -180,11 +186,11 @@ function upgrade (key)
     {
         if (key === "crit")
         {
-            upgrades[key].value += upgrades["crit"].scoreMultiplier;
+            upgrades[key].value += upgrades["crit"].valueMultiplier;
         }
         else
         {
-            upgrades[key].value = Math.round(upgrades[key].value * upgrades[key].scoreMultiplier);
+            upgrades[key].value = Math.round(upgrades[key].value * upgrades[key].valueMultiplier);
         }
         score -= upgrades[key].price;
         upgrades[key].price = priceChange(upgrades[key].price, upgrades[key].priceMultiplier);
@@ -245,6 +251,7 @@ function updateScoreDisplay ()
     }
     saveData();
 }
+
 
 const audio = new Audio("./media/theme_music.mp3");
 // audio se opakuje nekonecnekrat
