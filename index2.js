@@ -44,7 +44,6 @@ const upgrades =
     };
 
 
-// dictionary ve kterém se uchvávají všechny zvířátka, jejich cena, nasobič ceny atd.
 const animals =
     {
         tung:
@@ -60,8 +59,6 @@ const animals =
             }
     };
 
-
-// uchovává data do localstorage aby se při jakémkoliv refreshy vypnutí a podobně všechna data uživateli neresetovali
 function saveData ()
 {
     if (!isNaN(score))
@@ -85,13 +82,11 @@ function saveData ()
     localStorage.setItem("critValueValue", JSON.stringify(upgrades["critValue"].value));
 }
 
-// vyčistí všechna uživatelská data
+
 function clearData(clearPrestige = false)
 {
-
     localStorage.clear();
 
-    // po vyčistění dat přiřadí všem proměnným zpět jejich základní hodnoty
     score = 0;
 
     upgrades["crit"].value = 0;
@@ -106,31 +101,32 @@ function clearData(clearPrestige = false)
     animals["tung"].count = 0;
     animals["tung"].price = 10;
 
-    // pokud do funkce vejde true přenastavý se i hodnoty pro pestige
     if (clearPrestige)
     {
         upgrades["prestige"].price = 100_000;
         upgrades["prestige"].value = 1
     }
-    // obnoví obraz aby zoobrazoval změněné hodnoty
+
     updateScoreDisplay();
 }
 
 
 function buyAnimal(animalKey)
 {
-    // uloží si zvíře a jeho data za pomocí kliče zadaného v  parametrech
     let animal = animals[animalKey];
 
     if (score >= animal.price)
     {
-        // zmení cenu, vezme skóré a zahraje zvuk daného zvířete pokud bylo skóré větší než cena
         score -= animal.price;
         animal.count += 1;
         animal.price = priceChange(animal.price, animal.priceMultiplier);
         animal.sound.play();
-        // obnoví obraz aby zoobrazoval změněné hodnoty
+
         updateScoreDisplay();
+    }
+    else
+    {
+        console.log(`Není dost peněz na koupi ${animal.name}. Potřeba: ${animal.price}, nyní: ${score}`);
     }
 }
 
@@ -138,7 +134,6 @@ function buyAnimal(animalKey)
 function getTotalCPS()
 {
     let cps = 0;
-    // postupně spočítá kolik je celková hodnota kolik zvířata vydělají za sekundu
     for (let key in animals)
     {
         cps += animals[key].count * animals[key].scoreValue * upgrades["prestige"].value;
@@ -149,19 +144,15 @@ function getTotalCPS()
 
 function playerClicker(crit = false)
 {
-    // pokud do funkce vejde parametr true:
     if (crit)
     {
         let clicks = upgrades["click"].value * upgrades["critValue"].value * upgrades["prestige"].value;
-        // secte hodnotu clicks s hodnodnotou kterou vrací funkce getTotalCPS a vypíše jí na obrazovku
         cps_label.innerHTML = getTotalCPS() + clicks;
         return clicks;
     }
-    // jinak:
     else
     {
         let clicks = upgrades["click"].value * upgrades["prestige"].value
-        // secte hodnotu clicks s hodnodnotou kterou vrací funkce getTotalCPS a vypíše jí na obrazovku
         cps_label.innerHTML = getTotalCPS() + clicks;
         return clicks;
     }
@@ -195,17 +186,15 @@ function upgrade (key)
     {
         if (key === "crit")
         {
-            // vylepší se šance na kritický zásah
             upgrades[key].value += upgrades["crit"].valueMultiplier;
         }
         else
         {
-            // zvětší hodnoty pro vylepšení které užívatel vybral
             upgrades[key].value = Math.round(upgrades[key].value * upgrades[key].valueMultiplier);
         }
-        // odebere skore, změní cenu a vypíše na obrazovku
         score -= upgrades[key].price;
         upgrades[key].price = priceChange(upgrades[key].price, upgrades[key].priceMultiplier);
+        console.log(`Nová cena ${upgrades[key].price}, nova value ${upgrades[key].value}`);
     }
     updateScoreDisplay();
 }
@@ -215,17 +204,20 @@ function prestige ()
 {
     if (score >= upgrades["prestige"].price)
     {
-        // kdyz uzivatel koupi prestige resetuje vsechna data a zvetsi hodnotu prestige o 10 nasledne zmeni cenu
         upgrades["prestige"].value *= 10;
         upgrades["prestige"].price = priceChange(upgrades["prestige"].price, upgrades["prestige"].priceMultiplier);
+        console.log(`Nová cena ${upgrades["prestige"].price}, nova value ${upgrades["prestige"].value}`);
         clearData();
+    }
+    else
+    {
+        console.log(`cena ${upgrades["prestige"].price}`);
     }
 }
 
 
 function priceChange (price, multiplier)
 {
-    // vratí zaokrouhlenou hodnotu nasobku ceny a nasobitele ceny
     return Math.round(price * multiplier);
 }
 
@@ -234,7 +226,6 @@ function addScoreFromAnimals ()
 {
     for (let key in animals)
     {
-        // prochází postupně klíči všech zvířat a vždy ke skoré pričte jejich score vynásobené jejich počtem a prestige
         let animal = animals[key];
         if (animal.count > 0)
         {
@@ -247,22 +238,17 @@ function addScoreFromAnimals ()
 
 function updateScoreDisplay ()
 {
-    // nastavi hodnotu pro skore do html
     score_label.innerHTML = score;
-
-    // postupně projde všechny zvířata a vypíše do html hodnoty
     for (let animal in animals)
     {
         animals[animal].priceLabel.innerHTML = animals[animal].price;
         animals[animal].countLabel.innerHTML = animals[animal].count;
     }
-    // postupně projde všechny vylepšení a vypíše do html hodnoty
     for (let upgrade in upgrades)
     {
         upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price;
         upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value;
     }
-    // uloží hodnoty
     saveData();
 }
 
@@ -272,7 +258,6 @@ const audio = new Audio("./media/theme_music.mp3");
 audio.loop = true;
 let isPlaying = false;
 
-// po stlačení tlačítka se buď zapne pisnička nebo vypne podle stavu
 document.getElementById("playButton").addEventListener("click", () => {
     if (isPlaying)
     {
@@ -289,17 +274,10 @@ document.getElementById("playButton").addEventListener("click", () => {
     isPlaying = !isPlaying;
 });
 
-
-//každou sekundu zavolá funkci a přidelí html elementu novou hodnotu
 setInterval(() => {document.getElementById("cps").innerHTML = getTotalCPS();}, 1000);
 
-
-// každou sekundu přidá score ze zvířat
 setInterval(() => addScoreFromAnimals(), 1000);
 
-
-// po zapnutí stránky se obnoví co je na obrazovce
-window.onload = () =>
-{
+window.onload = () => {
     updateScoreDisplay();
 };
