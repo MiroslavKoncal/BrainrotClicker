@@ -131,7 +131,7 @@ button {
 }
 
 .animalName{
-    vertical-align: end;
+    font-weight: bold;
 }
 
 .animalImage{

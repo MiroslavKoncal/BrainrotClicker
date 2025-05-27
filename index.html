@@ -16,45 +16,45 @@
     </div>
 
     <div>
-        <button id="mainButton">Tlačítko</button>
+        <button id="mainButton" onclick="callClicker()">Tlačítko</button>
     </div>
     <!-- menu zvířat -->
     <footer class="animalMenu">
         <div class="animalFrame" onclick="buyAnimal('tung')">
             <p class="animalName">Tung Tung Tung Sahur</p>
             <img src="./media/sahur.png" alt="Tung Tung Tung Sahur" class="animalImage">
-            <p>cena</p>
-            <p>+body</p>
+            <p id="tungCountValue"></p>
+            <p id="tungPriceValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('tralalero')">
             <p class="animalName">Tralalero Tralala</p>
             <img src="./media/tralalero.png" alt="Tralalero Tralala" class="animalImage">
-            <p>cena</p>
-            <p>+body</p>
+            <p id="tralaleroCountValue">pocet</p>
+            <p id="tralaleroPriceValue">cena</p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('bombardino')">
             <p class="animalName">Bombardino Crocodilo</p>
             <img src="./media/bombardino.png" alt="Bombardino Crocodilo" class="animalImage">
-            <p>cena</p>
-            <p>+body</p>
+            <p id="bombardinoCountValue">pocet</p>
+            <p id="bombardinoPriceValue">cena</p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('lirili')">
             <p class="animalName">Lirili Larila</p>
             <img src="./media/Lirili_Larila.png" alt="Lirili Larila" class="animalImage">
-            <p>cena</p>
-            <p>+body</p>
+            <p id="liriliCountValue">pocet</p>
+            <p id="liriliPriceValue">cena</p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('patapim')">
             <p class="animalName">Brr Brr Patapim</p>
             <img src="./media/patapim.png" alt="Brr Brr Patapim" class="animalImage">
-            <p>cena</p>
-            <p>+body</p>
+            <p id="patapimCountValue">pocet</p>
+            <p id="patapimPriceValue">cena</p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('chimpanz')">
             <p class="animalName">Chimpanzini Bananini</p>
             <img src="./media/Chimpanzini_Bananini.png" alt="Chimpanzini Bananini" class="animalImage">
-            <p>cena</p>
-            <p>+body</p>
+            <p id="chimpanzCountValue">pocet</p>
+            <p id="chimpanzPriceValue">cena</p>
         </div>
     </footer>
     <!-- ^ test rozlozeni ^ -->
@@ -62,13 +62,6 @@
 
     <div id="score">0</div>
     <div id="cps">0</div>
-
-    <div>
-        <p>tung tung sahur</p>
-        <button onclick="buyAnimal('tung')">Tung Tung Sahur</button>
-        <p id="tungPriceValue"></p>
-        <p id="tungCountValue"></p>
-    </div>
 
     <br>
 
