@@ -203,6 +203,78 @@ function clearData(clearPrestige = false)
 }
 
 
+function achivementsSaveAnimals()
+{
+    if (animals["tung"].count >= 10)
+    {
+        localStorage.setItem("achiveTung", JSON.stringify(true));
+    }
+    if (animals["tralala"].count >= 10)
+    {
+        localStorage.setItem("achiveTrala", JSON.stringify(true));
+    }
+    if (animals["lirili"].count >= 10)
+    {
+        localStorage.setItem("achiveLirili", JSON.stringify(true));
+    }
+    if (animals["bombardino"].count >= 10)
+    {
+        localStorage.setItem("achiveBombardino", JSON.stringify(true));
+    }
+    if (animals["patapim"].count >= 10)
+    {
+        localStorage.setItem("achivePatapim", JSON.stringify(true));
+    }
+    if (animals["bananini"].count >= 10)
+    {
+        localStorage.setItem("achiveBananini", JSON.stringify(true));
+    }
+}
+
+function achivementsSaveUpgrades()
+{
+    if (upgrades["click"].value >= 100)
+    {
+        localStorage.setItem("achiveClick", JSON.stringify(true));
+    }
+    if (upgrades["crit"].value >= 50)
+    {
+        localStorage.setItem("achiveCrit", JSON.stringify(true));
+    }
+    if (upgrades["crit"].value >= 50)
+    {
+        localStorage.setItem("achiveCritValue", JSON.stringify(true));
+    }
+    if (upgrades["prestige"].value >= 1000)
+    {
+        localStorage.setItem("achivePrestige", JSON.stringify(true));
+    }
+}
+
+function achivementsSaveScore()
+{
+    if (score >= 10_000)
+    {
+        localStorage.setItem("achive10k", JSON.stringify(true));
+    }
+    if (score >= 100_000)
+    {
+        localStorage.setItem("achive100k", JSON.stringify(true));
+    }
+    if (score >= 1_000_000)
+    {
+        localStorage.setItem("achive1m", JSON.stringify(true));
+    }
+    if (score >= 10_000_000)
+    {
+        localStorage.setItem("achive10m", JSON.stringify(true));
+    }
+    if (score >= 1_000_000_000)
+    {
+        localStorage.setItem("achive1b", JSON.stringify(true));
+    }
+}
+
 // do tlačítka vložíme klíč = název zvířete v dictionary
 function buyAnimal(animalKey)
 {
@@ -266,10 +338,12 @@ function critChance ()
 }
 
 
+let clickSound = new Audio("./media/zvuky/click.mp3");
 // hlavní funkce pro kliknutí (volá se při kliknutí uživatele)
 function callClicker ()
 {
     score += critChance();
+    clickSound.play();
     updateScoreDisplay();
 }
 
@@ -343,13 +417,13 @@ function updateScoreDisplay ()
     score_label.innerHTML = score;
     for (let animal in animals)
     {
-        animals[animal].priceLabel.innerHTML = animals[animal].price;
+        animals[animal].priceLabel.innerHTML = animals[animal].price + ",-";
         animals[animal].countLabel.innerHTML = animals[animal].count + "x";
     }
     for (let upgrade in upgrades)
     {
-        upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price;
-        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value;
+        upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price + ",-";
+        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "";
     }
     saveData();
 }
@@ -368,11 +442,11 @@ document.getElementById("playButton").addEventListener("click", () => {
         // zastavi pisen a nastavy jeji cas na zacatek
         audio.pause();
         audio.currentTime = 0;
-        document.getElementById("playButton").textContent = "zapnout pisničku";
+        document.getElementById("playButton").textContent = "zapnout";
     } else {
         // zapne pisen
         audio.play();
-        document.getElementById("playButton").textContent = "zastavit pisničku";
+        document.getElementById("playButton").textContent = "zastavit";
     }
     // nastavi druhou moznost pro podminku
     isPlaying = !isPlaying;
