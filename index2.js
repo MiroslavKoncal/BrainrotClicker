@@ -425,6 +425,9 @@ function updateScoreDisplay ()
         upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price + ",-";
         upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "x";
     }
+    achivementsSaveAnimals();
+    achivementsSaveUpgrades();
+    achivementsSaveScore();
     saveData();
 }
 
