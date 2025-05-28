@@ -53,7 +53,7 @@ const animals =
                 sound: new Audio("./media/zvuky/tung.mp3"),
                 count: JSON.parse(localStorage.getItem("tungCount")) || 0,
                 countLabel: document.getElementById("tungCountValue"),
-                price: JSON.parse(localStorage.getItem("tungPrice")) || 30,
+                price: JSON.parse(localStorage.getItem("tungPrice")) || 100,
                 priceLabel: document.getElementById("tungPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -64,7 +64,7 @@ const animals =
                 sound: new Audio("./media/zvuky/tralala.mp3"),
                 count: JSON.parse(localStorage.getItem("tralalaCount")) || 0,
                 countLabel: document.getElementById("tralalaCountValue"),
-                price: JSON.parse(localStorage.getItem("tralalaPrice")) || 30,
+                price: JSON.parse(localStorage.getItem("tralalaPrice")) || 300,
                 priceLabel: document.getElementById("tralalaPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -75,7 +75,7 @@ const animals =
                 sound: new Audio("./media/zvuky/crocodilo.mp3"),
                 count: JSON.parse(localStorage.getItem("bombardinoCount")) || 0,
                 countLabel: document.getElementById("bombardinoCountValue"),
-                price: JSON.parse(localStorage.getItem("bombardinoPrice")) || 30,
+                price: JSON.parse(localStorage.getItem("bombardinoPrice")) || 1000,
                 priceLabel: document.getElementById("bombardinoPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -86,7 +86,7 @@ const animals =
                 sound: new Audio("./media/zvuky/lirili.mp3"),
                 count: JSON.parse(localStorage.getItem("liriliCount")) || 0,
                 countLabel: document.getElementById("liriliCountValue"),
-                price: JSON.parse(localStorage.getItem("liriliPrice")) || 30,
+                price: JSON.parse(localStorage.getItem("liriliPrice")) || 10_000,
                 priceLabel: document.getElementById("liriliPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -97,7 +97,7 @@ const animals =
                 sound: new Audio("./media/zvuky/patapim.mp3"),
                 count: JSON.parse(localStorage.getItem("patapimCount")) || 0,
                 countLabel: document.getElementById("patapimCountValue"),
-                price: JSON.parse(localStorage.getItem("patapimPrice")) || 30,
+                price: JSON.parse(localStorage.getItem("patapimPrice")) || 100_000,
                 priceLabel: document.getElementById("patapimPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -108,7 +108,7 @@ const animals =
                 sound: new Audio("./media/zvuky/bananini.mp3"),
                 count: JSON.parse(localStorage.getItem("bananiniCount")) || 0,
                 countLabel: document.getElementById("bananiniCountValue"),
-                price: JSON.parse(localStorage.getItem("bananiniPrice")) || 30,
+                price: JSON.parse(localStorage.getItem("bananiniPrice")) || 1_000_000,
                 priceLabel: document.getElementById("bananiniPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -175,22 +175,22 @@ function clearData(clearPrestige = false)
     upgrades["critValue"].price = 1000;
 
     animals["tung"].count = 0;
-    animals["tung"].price = 10;
+    animals["tung"].price = 100;
 
     animals["tralala"].count = 0;
-    animals["tralala"].price = 10;
-
-    animals["lirili"].count = 0;
-    animals["lirili"].price = 10;
+    animals["tralala"].price = 300;
 
     animals["bombardino"].count = 0;
-    animals["bombardino"].price = 10;
+    animals["bombardino"].price = 1_000 ;
+
+    animals["lirili"].count = 0;
+    animals["lirili"].price = 10_000;
 
     animals["patapim"].count = 0;
-    animals["patapim"].price = 10;
+    animals["patapim"].price = 100_000;
 
     animals["bananini"].count = 0;
-    animals["bananini"].price = 10;
+    animals["bananini"].price = 1_000_000;
 
     // pokud se přenáší reset prestiže, nastaví se její základní hodnoty
     if (clearPrestige)
@@ -273,7 +273,7 @@ function callClicker ()
     updateScoreDisplay();
 }
 
-
+let buySound = new Audio("./media/zvuky/buy.mp3");
 // nákup upgradu podle klíče
 function upgrade (key)
 {
@@ -291,7 +291,7 @@ function upgrade (key)
         }
         score -= upgrades[key].price;
         upgrades[key].price = priceChange(upgrades[key].price, upgrades[key].priceMultiplier);
-        console.log(`Nová cena ${upgrades[key].price}, nova value ${upgrades[key].value}`);
+        buySound.play();
     }
     updateScoreDisplay();
 }
