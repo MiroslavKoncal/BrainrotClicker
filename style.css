@@ -42,6 +42,7 @@ a{
     color: black;
     text-align: center;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px -12px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    transition: .2s;
 }
 a:hover{
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px -12px inset, rgba(0, 0, 0, 0.23) 0px 6px 6px inset;
@@ -52,6 +53,7 @@ a:hover{
 body{
     background-color: rgb(237, 255, 238);
     font-family: Arial, sans-serif;
+    font-size: larger;
     text-align: center;
     justify-content: center;
     margin: 0;
@@ -65,14 +67,6 @@ body{
 #cps {
     font-size: 18px;
     font-weight: bold;
-}
-
-.descriptionText {
-    visibility: hidden;
-}
-
-.description:hover .descriptionText{
-    visibility: visible;
 }
 
 .mainContainer {
@@ -111,6 +105,10 @@ body{
     border-color: #464f51ff;
 }
 
+button, p{
+    font-size: 20px;
+}
+
 /* upgrade menu */
 
 .upgradeMenu {
@@ -135,10 +133,12 @@ body{
     padding-inline: 10px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
     cursor: pointer;
+    transition: .2s;
 }
 
 .upgradeFrame:hover {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
+    transform: translateX(5px);
 }
 
 .upgradeFrame:active {
@@ -154,10 +154,34 @@ body{
 }
 
 #descriptionText{
+    margin: 15px;
     position: absolute;
+    transition: .2s;
+    text-shadow: rgba(119, 173, 120, 1) 0px 5px 8px;
 }
 
 /* tlačítko */
+
+#mainButton{
+    background-color: #7dba84ff;
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    border-color: #464f51ff;
+    border-style: solid;
+    border-width: 2px;
+    cursor: pointer;
+    transition: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+#mainButton:hover{
+    transform: scale(1.02);
+}
+
+#mainButton:active{
+    transform: scale(1.1);
+}
 
 .buttonContainer {
     flex: 0 0 auto;
@@ -189,10 +213,12 @@ body{
     padding: 10px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
+    transition: .2s;
 }
 
 #playButton:hover{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
+    transform: translateX(-3px);
 }
 
 #playButton:active{
@@ -205,12 +231,6 @@ body{
     font-size: large;
 }
 
-#mainButton{
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-}
-
 /* menu zvířat */
 
 .animalMenu{
@@ -218,7 +238,7 @@ body{
     bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #77ad78ff;
+    background-color: rgb(119, 173, 120);
     display: flex;
     justify-content: space-evenly;
     width: fit-content;
@@ -231,7 +251,7 @@ body{
 }
 
 .animalFrame{
-    background-color: #7dba84ff;
+    background-color: rgb(125, 186, 132);
     cursor: pointer;
     padding: 3px;
     margin: 15px;
@@ -243,12 +263,14 @@ body{
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
     width: 150px;
     align-content: end;
+    transition: .2s;
 }
 .animalFrame:first-child{
     margin-left: 15px;
 }
 
 .animalFrame:hover{
+    transform: translateY(-5px);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
 }
 
