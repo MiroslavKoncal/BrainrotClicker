@@ -66,11 +66,6 @@ body{
     font-weight: bold;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
 .descriptionText {
     visibility: hidden;
 }
@@ -79,14 +74,6 @@ button {
     visibility: visible;
 }
 
-#mainButton{
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-}
-
-/* upgrady, tlačítko, pravý panel */
-
 .mainContainer {
     display: flex;
     justify-content: space-between;
@@ -94,19 +81,73 @@ button {
     margin-block: 200px;
 }
 
-.leftPanel {
+.leftPanel{
     flex: 1;
     text-align: left;
 }
+
+.rightPanel {
+    flex: 1;
+    text-align: right;
+}
+
+/* upgrade menu */
+
+.upgradeMenu {
+    background-color: #77ad78ff;
+    border-radius: 0px 30px 30px 0px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #464f51ff;
+    width: fit-content;
+}
+
+.upgradeFrame {
+    background-color: #7dba84ff;
+    display: flex;
+    border-radius: 15px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #464f51ff;
+    margin: 15px;
+    user-select: none;
+}
+
+.upgradeFrame > button {
+    background-color: #7dba84ff;
+    border-radius: 15px;
+    border-width: 0px 0px 0px 2px;
+    border-style: solid;
+    border-color: #464f51ff;
+}
+
+#descriptionText{
+    position: absolute;
+}
+
+/* tlačítko */
 
 .buttonContainer {
     flex: 0 0 auto;
     text-align: center;
 }
 
-.rightPanel {
-    flex: 1;
-    text-align: right;
+/* zvukove menu */
+
+.soundMenu {
+    background-color: #77ad78ff;
+    border-radius: 30px 0px 0px 30px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #464f51ff;
+    width: fit-content;
+    margin-left: auto;
+}
+
+#mainButton{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
 }
 
 /* menu zvířat */

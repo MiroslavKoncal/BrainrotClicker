@@ -19,37 +19,44 @@
 
     <div class="mainContainer">
         <div class="leftPanel">
-            <p>Vylepšení</p>
-            <div>
-                <p>výdělek z kliknutí</p>
-                <button onclick="upgrade('click')">vylepšit</button>
-                <p id="clickPrice"></p>
-                <p id="clickValue"></p>
+            <div class="upgradeMenu">
+                <div class="upgradeFrame" onmouseenter="show('clickPower')" onmouseleave="hide()">
+                    <p>Výdělek z kliknutí</p>
+                    <p id="clickPrice"></p>
+                    <p id="clickValue"></p>
+                    <button onclick="upgrade('click')">vylepšit</button>
+                </div>
+                <div class="upgradeFrame" onmouseenter="show('criticalChance')" onmouseleave="hide()">
+                    <p>Šance na kritický zásah</p>
+                    <p id="critPrice"></p>
+                    <p id="critValue"></p>
+                    <button onclick="upgrade('crit')">vylepšit</button>
+                </div>
+                <div class="upgradeFrame" onmouseenter="show('criticalPower')" onmouseleave="hide()">
+                    <p>Výdělek z kritického zásahu</p>
+                    <p id="critValuePrice"></p>
+                    <p id="critValueValue"></p>
+                    <button onclick="upgrade('critValue')">vylepšit</button>
+                </div>
+                <div class="upgradeFrame" onmouseenter="show('prestige')" onmouseleave="hide()">
+                    <p>Prestiž</p>
+                    <p id="prestigePrice"></p>
+                    <p id="prestigeValue"></p>
+                    <button onclick="prestige()">vylepšit</button>
+                </div>
             </div>
-            <div>
-                <p>šance na kritický zásah</p>
-                <button onclick="upgrade('crit')">vylepšit</button>
-                <p id="critPrice"></p>
-                <p id="critValue"></p>
-            </div>
-            <div>
-                <p>vydělek z kritického zásahu</p>
-                <button onclick="upgrade('critValue')">vylepšit</button>
-                <p id="critValuePrice"></p>
-                <p id="critValueValue"></p>
-            </div>
-            <div class = "description">
-                <button onclick="prestige()">prestiž</button>
-                <span class="descriptionText">restartuje postup, ale zvyší skóre za klik a zvířátka</span>
-                <p id="prestigePrice"></p>
-                <p id="prestigeValue"></p>
-            </div>
+            <p id="descriptionText"></p>
+            <script src="./descriptions.js"></script>
         </div>
+        
         <div class="buttonContainer">
             <button id="mainButton" onclick="callClicker()">Tlačítko</button>
         </div>
         <div class="rightPanel">
-            panel vpravo
+            <div class="soundMenu">
+                <p>panel vpravo</p>
+                <button id="playButton">zapnout pisničku</button>
+            </div>
         </div>
         
     </div>
@@ -95,54 +102,9 @@
     <!-- ^ test rozlozeni ^ -->
     <hr>
 
-<!--    <div id="score">0</div>-->
-<!--    <div id="cps">0</div>-->
-
-    <div>
-        <p>tung tung sahur</p>
-        <button onclick="buyAnimal('tung')">Tung Tung Sahur</button>
-<!--        <p id="tungPriceValue"></p>-->
-<!--        <p id="tungCountValue"></p>-->
-    </div>
-
-    <br>
-
-    <div>
-        <p>výdělek z kliknutí</p>
-        <button onclick="upgrade('click')">vylepšit</button>
-        <p id="clickPrice"></p>
-        <p id="clickValue"></p>
-    </div>
-    <div>
-        <p>šance na kritický zásah</p>
-        <button onclick="upgrade('crit')">vylepšit</button>
-        <p id="critPrice"></p>
-        <p id="critValue"></p>
-    </div>
-    <div>
-        <p>vydělek z kritického zásahu</p>
-        <button onclick="upgrade('critValue')">vylepšit</button>
-        <p id="critValuePrice"></p>
-        <p id="critValueValue"></p>
-    </div>
-
-    <br>
-
-<!--    <button id="mainButton" onclick="callClicker()">kliknout</button>-->
-    <div class = "description">
-        <button onclick="prestige()">prestiž</button>
-        <span class="descriptionText">restartuje postup, ale zvyší skóre za klik a zvířátka</span>
-        <p id="prestigePrice"></p>
-        <p id="prestigeValue"></p>
-    </div>
-
     <div>
         <button onclick="clearData(true)">restartovat celkový postup</button>
-    </div>
-
-    <div>
-        <button id="playButton">zapnout pisničku</button>
-    </div>
+    </div>  
 
     <script src="index2.js"></script>
 </body>
