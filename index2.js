@@ -64,7 +64,7 @@ const animals =
                 sound: new Audio("./media/zvuky/tralala.mp3"),
                 count: JSON.parse(localStorage.getItem("tralalaCount")) || 0,
                 countLabel: document.getElementById("tralalaCountValue"),
-                price: JSON.parse(localStorage.getItem("tralalaPrice")) || 300,
+                price: JSON.parse(localStorage.getItem("tralalaPrice")) || 500,
                 priceLabel: document.getElementById("tralalaPriceValue"),
                 priceMultiplier: 1.75,
                 scoreValue: 100,
@@ -297,6 +297,7 @@ function upgrade (key)
 }
 
 
+let prestigeAudio = new Audio("./media/zvuky/prestige.mp3");
 // aktivuje prestiž pokud má hráč dostatek skóre
 function prestige ()
 {
@@ -305,6 +306,7 @@ function prestige ()
         upgrades["prestige"].value *= 10;
         upgrades["prestige"].price = priceChange(upgrades["prestige"].price, upgrades["prestige"].priceMultiplier);
         clearData();
+        prestigeAudio.play();
     }
     else
     {
@@ -383,7 +385,8 @@ setInterval(() => {document.getElementById("cps").innerHTML = getTotalCPS();}, 1
 setInterval(() => addScoreFromAnimals(), 1000);
 
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () =>
+{
     score_label = document.getElementById("score");
     cps_label = document.getElementById("cps");
     updateScoreDisplay();
