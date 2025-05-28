@@ -128,6 +128,21 @@ function saveData ()
     localStorage.setItem("tungCount", JSON.stringify(animals["tung"].count));
     localStorage.setItem("tungPrice", JSON.stringify(animals["tung"].price))
 
+    localStorage.setItem("tralalaCount", JSON.stringify(animals["tralala"].count));
+    localStorage.setItem("tralalaPrice", JSON.stringify(animals["tralala"].price))
+
+    localStorage.setItem("bombardinoCount", JSON.stringify(animals["bombardino"].count));
+    localStorage.setItem("bombardinoPrice", JSON.stringify(animals["bombardino"].price))
+
+    localStorage.setItem("liriliCount", JSON.stringify(animals["lirili"].count));
+    localStorage.setItem("liriliPrice", JSON.stringify(animals["lirili"].price))
+
+    localStorage.setItem("patapimCount", JSON.stringify(animals["patapim"].count));
+    localStorage.setItem("patapimPrice", JSON.stringify(animals["patapim"].price))
+
+    localStorage.setItem("bananiniCount", JSON.stringify(animals["bananini"].count));
+    localStorage.setItem("bananiniPrice", JSON.stringify(animals["bananini"].price))
+
     localStorage.setItem("prestigePrice", JSON.stringify(upgrades["prestige"].price));
     localStorage.setItem("prestigeValue", JSON.stringify(upgrades["prestige"].value));
 
@@ -161,6 +176,21 @@ function clearData(clearPrestige = false)
 
     animals["tung"].count = 0;
     animals["tung"].price = 10;
+
+    animals["tralala"].count = 0;
+    animals["tralala"].price = 10;
+
+    animals["lirili"].count = 0;
+    animals["lirili"].price = 10;
+
+    animals["bombardino"].count = 0;
+    animals["bombardino"].price = 10;
+
+    animals["patapim"].count = 0;
+    animals["patapim"].price = 10;
+
+    animals["bananini"].count = 0;
+    animals["bananini"].price = 10;
 
     // pokud se přenáší reset prestiže, nastaví se její základní hodnoty
     if (clearPrestige)
