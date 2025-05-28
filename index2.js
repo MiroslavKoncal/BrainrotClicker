@@ -423,7 +423,7 @@ function updateScoreDisplay ()
     for (let upgrade in upgrades)
     {
         upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price + ",-";
-        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "x";
+        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "";
     }
     saveData();
 }
@@ -442,11 +442,11 @@ document.getElementById("playButton").addEventListener("click", () => {
         // zastavi pisen a nastavy jeji cas na zacatek
         audio.pause();
         audio.currentTime = 0;
-        document.getElementById("playButton").textContent = "zapnout pisničku";
+        document.getElementById("playButton").textContent = "zapnout";
     } else {
         // zapne pisen
         audio.play();
-        document.getElementById("playButton").textContent = "zastavit pisničku";
+        document.getElementById("playButton").textContent = "zastavit";
     }
     // nastavi druhou moznost pro podminku
     isPlaying = !isPlaying;

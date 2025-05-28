@@ -88,7 +88,7 @@ body{
 
 .rightPanel {
     flex: 1;
-    text-align: right;
+    text-align: center;
 }
 
 /* upgrade menu */
@@ -113,6 +113,15 @@ body{
     user-select: none;
     justify-content: space-evenly;
     padding-inline: 10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
+}
+
+.upgradeFrame:hover {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
+}
+
+.upgradeFrame:active {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px inset, rgba(0, 0, 0, 0.2) 0px 10px 5px inset;
 }
 
 .upgradeFrame > hr {
@@ -137,6 +146,9 @@ body{
 /* zvukove menu */
 
 .soundMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     background-color: #77ad78ff;
     border-radius: 30px 0px 0px 30px;
     border-width: 2px;
@@ -144,6 +156,24 @@ body{
     border-color: #464f51ff;
     width: fit-content;
     margin-left: auto;
+}
+
+#playButton{
+    background-color: #7dba84ff;
+    border-radius: 15px;
+    border-color: #464f51ff;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin: 15px;
+}
+
+#playbutton:hover{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
+}
+
+.soundMenu > p {
+    margin: 15px;
 }
 
 #mainButton{
