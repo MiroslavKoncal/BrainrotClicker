@@ -43,22 +43,6 @@
         <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
         </div>
 
-    <script>
-        // Přidání posluchače událostí na tlačítko pro přepnutí barevného schématu
-        document.getElementById('temnomod').addEventListener('click', function() {
-            document.body.classList.toggle('dark-mode'); // Přepíná třídu dark-mode na <body>
-        });
-
-        // Funkce pro získání a zobrazení aktuálního data
-        function zobrazDatum() {
-            let dnes = new Date();
-            let formatovaneDatum = dnes.toLocaleDateString('cs-CZ'); // Formát českého data
-            document.getElementById('datum').textContent = formatovaneDatum; // Vložení data do HTML
-        }
-
-        zobrazDatum(); // Zavolání funkce při načtení stránky
-    </script>
-
         <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clickeru.</p>
         <h3>Hra obsahuje:</h3>
         <ul>
