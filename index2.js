@@ -423,7 +423,7 @@ function updateScoreDisplay ()
     for (let upgrade in upgrades)
     {
         upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price + ",-";
-        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "";
+        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "x";
     }
     saveData();
 }
