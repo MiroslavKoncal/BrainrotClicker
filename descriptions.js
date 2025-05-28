@@ -1,5 +1,5 @@
 descriptions = {
-    "clickPower": "Zvětší počet kliků za sekundu.",
+    "clickPower": "Zvětší počet kliků za klik.",
     "criticalChance": "Zvětší šanci na kritický zásah.",
     "criticalPower": "Zvětší počet kliků u kritického zásahu.",
     "prestige": "Restartuje postup, ale zvyší skóre za klik a zvířátka."

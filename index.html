@@ -19,30 +19,34 @@
 
     <div class="mainContainer">
         <div class="leftPanel">
-            <div class="upgradeMenu">
-                <div class="upgradeFrame" onmouseenter="show('clickPower')" onmouseleave="hide()">
-                    <p>Výdělek z kliknutí</p>
-                    <p id="clickPrice"></p>
+            <div class="upgradeMenu" onmouseleave="hide()">
+                <div class="upgradeFrame" onmouseenter="show('clickPower')" onclick="upgrade('click')">
                     <p id="clickValue"></p>
-                    <button onclick="upgrade('click')">vylepšit</button>
+                    <hr>
+                    <p>Výdělek z kliknutí</p>
+                    <hr>
+                    <p id="clickPrice"></p>
                 </div>
-                <div class="upgradeFrame" onmouseenter="show('criticalChance')" onmouseleave="hide()">
-                    <p>Šance na kritický zásah</p>
-                    <p id="critPrice"></p>
+                <div class="upgradeFrame" onmouseenter="show('criticalChance')" onclick="upgrade('crit')">
                     <p id="critValue"></p>
-                    <button onclick="upgrade('crit')">vylepšit</button>
+                    <hr>
+                    <p>Šance na kritický zásah</p>
+                    <hr>
+                    <p id="critPrice"></p>
                 </div>
-                <div class="upgradeFrame" onmouseenter="show('criticalPower')" onmouseleave="hide()">
-                    <p>Výdělek z kritického zásahu</p>
-                    <p id="critValuePrice"></p>
+                <div class="upgradeFrame" onmouseenter="show('criticalPower')" onclick="upgrade('critValue')">
                     <p id="critValueValue"></p>
-                    <button onclick="upgrade('critValue')">vylepšit</button>
+                    <hr>
+                    <p>Výdělek z kritického zásahu</p>
+                    <hr>
+                    <p id="critValuePrice"></p>
                 </div>
-                <div class="upgradeFrame" onmouseenter="show('prestige')" onmouseleave="hide()">
-                    <p>Prestiž</p>
-                    <p id="prestigePrice"></p>
+                <div class="upgradeFrame" onmouseenter="show('prestige')" onclick="prestige()">
                     <p id="prestigeValue"></p>
-                    <button onclick="prestige()">vylepšit</button>
+                    <hr>
+                    <p>Prestiž</p>
+                    <hr>
+                    <p id="prestigePrice"></p>
                 </div>
             </div>
             <p id="descriptionText"></p>
