@@ -26,6 +26,24 @@
                 <p id="clickPrice"></p>
                 <p id="clickValue"></p>
             </div>
+            <div>
+                <p>šance na kritický zásah</p>
+                <button onclick="upgrade('crit')">vylepšit</button>
+                <p id="critPrice"></p>
+                <p id="critValue"></p>
+            </div>
+            <div>
+                <p>vydělek z kritického zásahu</p>
+                <button onclick="upgrade('critValue')">vylepšit</button>
+                <p id="critValuePrice"></p>
+                <p id="critValueValue"></p>
+            </div>
+            <div class = "description">
+                <button onclick="prestige()">prestiž</button>
+                <span class="descriptionText">restartuje postup, ale zvyší skóre za klik a zvířátka</span>
+                <p id="prestigePrice"></p>
+                <p id="prestigeValue"></p>
+            </div>
         </div>
         <div class="buttonContainer">
             <button id="mainButton" onclick="callClicker()">Tlačítko</button>
