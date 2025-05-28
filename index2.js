@@ -203,6 +203,78 @@ function clearData(clearPrestige = false)
 }
 
 
+function achivementsSaveAnimals()
+{
+    if (animals["tung"].count >= 10)
+    {
+        localStorage.setItem("achiveTung", JSON.stringify(true));
+    }
+    if (animals["tralala"].count >= 10)
+    {
+        localStorage.setItem("achiveTrala", JSON.stringify(true));
+    }
+    if (animals["lirili"].count >= 10)
+    {
+        localStorage.setItem("achiveLirili", JSON.stringify(true));
+    }
+    if (animals["bombardino"].count >= 10)
+    {
+        localStorage.setItem("achiveBombardino", JSON.stringify(true));
+    }
+    if (animals["patapim"].count >= 10)
+    {
+        localStorage.setItem("achivePatapim", JSON.stringify(true));
+    }
+    if (animals["bananini"].count >= 10)
+    {
+        localStorage.setItem("achiveBananini", JSON.stringify(true));
+    }
+}
+
+function achivementsSaveUpgrades()
+{
+    if (upgrades["click"].value >= 100)
+    {
+        localStorage.setItem("achiveClick", JSON.stringify(true));
+    }
+    if (upgrades["crit"].value >= 50)
+    {
+        localStorage.setItem("achiveCrit", JSON.stringify(true));
+    }
+    if (upgrades["crit"].value >= 50)
+    {
+        localStorage.setItem("achiveCritValue", JSON.stringify(true));
+    }
+    if (upgrades["prestige"].value >= 1000)
+    {
+        localStorage.setItem("achivePrestige", JSON.stringify(true));
+    }
+}
+
+function achivementsSaveScore()
+{
+    if (score >= 10_000)
+    {
+        localStorage.setItem("achive10k", JSON.stringify(true));
+    }
+    if (score >= 100_000)
+    {
+        localStorage.setItem("achive100k", JSON.stringify(true));
+    }
+    if (score >= 1_000_000)
+    {
+        localStorage.setItem("achive1m", JSON.stringify(true));
+    }
+    if (score >= 10_000_000)
+    {
+        localStorage.setItem("achive10m", JSON.stringify(true));
+    }
+    if (score >= 1_000_000_000)
+    {
+        localStorage.setItem("achive1b", JSON.stringify(true));
+    }
+}
+
 // do tlačítka vložíme klíč = název zvířete v dictionary
 function buyAnimal(animalKey)
 {
@@ -266,10 +338,12 @@ function critChance ()
 }
 
 
+let clickSound = new Audio("./media/zvuky/click.mp3");
 // hlavní funkce pro kliknutí (volá se při kliknutí uživatele)
 function callClicker ()
 {
     score += critChance();
+    clickSound.play();
     updateScoreDisplay();
 }
 
