@@ -20,26 +20,25 @@
     <div class="mainContainer">
         <div class="leftPanel">
             <div class="upgradeMenu">
-            <p>Vylepšení</p>
-                <div class="upgradeFrame" onhover="zobraz('clickPower')">
+                <div class="upgradeFrame" onmouseenter="show('clickPower')" onmouseleave="hide()">
                     <p>Výdělek z kliknutí</p>
                     <p id="clickPrice"></p>
                     <p id="clickValue"></p>
                     <button onclick="upgrade('click')">vylepšit</button>
                 </div>
-                <div class="upgradeFrame">
+                <div class="upgradeFrame" onmouseenter="show('criticalChance')" onmouseleave="hide()">
                     <p>Šance na kritický zásah</p>
                     <p id="critPrice"></p>
                     <p id="critValue"></p>
                     <button onclick="upgrade('crit')">vylepšit</button>
                 </div>
-                <div class="upgradeFrame">
+                <div class="upgradeFrame" onmouseenter="show('criticalPower')" onmouseleave="hide()">
                     <p>Výdělek z kritického zásahu</p>
                     <p id="critValuePrice"></p>
                     <p id="critValueValue"></p>
                     <button onclick="upgrade('critValue')">vylepšit</button>
                 </div>
-                <div class="upgradeFrame">
+                <div class="upgradeFrame" onmouseenter="show('prestige')" onmouseleave="hide()">
                     <p>Prestiž</p>
                     <p id="prestigePrice"></p>
                     <p id="prestigeValue"></p>

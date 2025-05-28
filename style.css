@@ -121,6 +121,10 @@ body{
     border-color: #464f51ff;
 }
 
+#descriptionText{
+    position: absolute;
+}
+
 /* tlačítko */
 
 .buttonContainer {

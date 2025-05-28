@@ -5,6 +5,10 @@ descriptions = {
     "prestige": "Restartuje postup, ale zvyší skóre za klik a zvířátka."
 }
 
-function zobraz(upgrade) {
-    document.getElementById("descriptionText").innerHTML = dexcriptions[upgrade];
+function show(upgrade) {
+    document.getElementById("descriptionText").innerHTML = descriptions[upgrade]
+}
+
+function hide() {
+    document.getElementById("descriptionText").innerHTML = ""
 }
