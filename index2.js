@@ -341,13 +341,13 @@ function updateScoreDisplay ()
     score_label.innerHTML = score;
     for (let animal in animals)
     {
-        animals[animal].priceLabel.innerHTML = animals[animal].price;
+        animals[animal].priceLabel.innerHTML = animals[animal].price + ",-";
         animals[animal].countLabel.innerHTML = animals[animal].count + "x";
     }
     for (let upgrade in upgrades)
     {
-        upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price;
-        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value;
+        upgrades[upgrade].priceLabel.innerHTML = upgrades[upgrade].price + ",-";
+        upgrades[upgrade].valueLabel.innerHTML = upgrades[upgrade].value + "x";
     }
     saveData();
 }

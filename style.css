@@ -111,14 +111,16 @@ body{
     border-color: #464f51ff;
     margin: 15px;
     user-select: none;
+    justify-content: space-evenly;
+    padding-inline: 10px;
 }
 
-.upgradeFrame > button {
-    background-color: #7dba84ff;
-    border-radius: 15px;
-    border-width: 0px 0px 0px 2px;
-    border-style: solid;
+.upgradeFrame > hr {
+    border-radius: 2px;
     border-color: #464f51ff;
+    border-width: 1px;
+    border-style: solid;
+    margin-inline: 10px;
 }
 
 #descriptionText{
