@@ -54,10 +54,14 @@ a:hover{
 body{
     background-color: rgb(237, 255, 238);
     font-family: Arial, sans-serif;
-    font-size: larger;
+    font-size: medium;
     text-align: center;
     justify-content: center;
     margin: 0;
+}
+
+button, p{
+    font-size: medium;
 }
 
 #score {
@@ -104,10 +108,6 @@ body{
     background-color: #7dba84ff;
     color: black;
     border-color: #464f51ff;
-}
-
-button, p{
-    font-size: 20px;
 }
 
 /* upgrade menu */

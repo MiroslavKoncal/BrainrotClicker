@@ -23,20 +23,23 @@
         <script>
             // tomasovo prezentace obrazku
             const images = [
-                "./media/sahur.png",
-                "./media/tralalero.png",
-                "./media/bombardino.png",
-                "./media/lirili.png",
-                "./media/Patapim.png",
-                "./media/chimpanz.png"
-            ];
+                {"path":"./media/sahur.png", "description":"Tung Tung Tung Sahur je špalek s pálkou"},
+                {"path":"./media/tralalero.png", "description":"Tralalero Tralala je náš milý kamarád, který nám pomáhá s hrou"},
+                {"path":"./media/bombardino.png", "description":"Bombardiro Crocodilo, náš věrný spojenec v boji proti nudy"},
+                {"path":"./media/lirili.png", "description":"Lirili Larila, postava plná energie a radosti"},
+                {"path":"./media/Patapim.png", "description":"Brr Brr Patapim, náš tajemný průvodce světem Brainrotu"},
+                {"path":"./media/chimpanz.png", "description":"Chimpanzini Bananini, zábavná postava, která nás vždy rozesměje"}
+            ]
+                
             let currentImageIndex = 0;
 
             function changeImage() {
-                document.getElementById("imageDisplay").src = images[currentImageIndex];
-                currentImageIndex = (currentImageIndex + 1) % images.length;
+                document.getElementById("imageDisplay").src = images[currentImageIndex].path
+                document.getElementById("imageDescription").innerHTML = images[currentImageIndex].description
+                currentImageIndex = (currentImageIndex + 1) % images.length
             }
-            setInterval(changeImage, 5000);
+            setInterval(changeImage, 5000)
+            changeImage()
         </script>
     </header>
     <main>
@@ -58,6 +61,7 @@
         </ul>
         <div class="imageShow">
             <img src="./media/sahur.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
+            <p id="imageDescription"></p>
         </div>
     
         <article>
