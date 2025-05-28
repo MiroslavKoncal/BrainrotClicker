@@ -294,6 +294,40 @@ button, p{
 
 /* ÚVODNÍ STRANA */
 
+.containerOne{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nazevLogo{
+    background-color: #7dba84ff;
+    border-color: #464f51ff;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin: 15px;
+    height: fit-content;
+}
+
+#logo{
+    float: left;
+}
+
+.imageShow{
+    background-color: #7dba84ff;
+    float: right;
+    border-color: #464f51ff;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    margin: 15px;
+    height: fit-content;
+}
+
 #imageDisplay{
     height: 300px;
+}
+
+.informace{
+    text-align: left;
 }
