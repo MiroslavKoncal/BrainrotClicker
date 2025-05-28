@@ -17,43 +17,58 @@
         <p id="cps">0</p>
     </div>
 
-    <div>
-        <button onclick="callClicker()" id="mainButton">Tlačítko</button>
+    <div class="mainContainer">
+        <div class="leftPanel">
+            <p>Vylepšení</p>
+            <div>
+                <p>výdělek z kliknutí</p>
+                <button onclick="upgrade('click')">vylepšit</button>
+                <p id="clickPrice"></p>
+                <p id="clickValue"></p>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <button id="mainButton" onclick="callClicker()">Tlačítko</button>
+        </div>
+        <div class="rightPanel">
+            panel vpravo
+        </div>
+        
     </div>
 
     <footer class="animalMenu">
         <div class="animalFrame" onclick="buyAnimal('tung')">
-            <p>Tung Tung Tung Sahur</p>
+            <p class="animalName">Tung Tung Tung Sahur</p>
             <img src="./media/sahur.png" alt="Tung Tung Tung Sahur" class="animalImage">
             <p id="tungPriceValue"></p>
             <p id="tungCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('tralala')">
-            <p>Tralalero Tralala</p>
+            <p class="animalName">Tralalero Tralala</p>
             <img src="./media/tralalero.png" alt="Tralalero Tralala" class="animalImage">
             <p id="tralalaPriceValue"></p>
             <p id="tralalaCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('bombardino')">
-            <p>Bombardino Crocodilo</p>
+            <p class="animalName">Bombardino Crocodilo</p>
             <img src="./media/bombardino.png" alt="Bombardino Crocodilo" class="animalImage">
             <p id="bombardinoPriceValue"></p>
             <p id="bombardinoCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('lirili')">
-            <p>Lirili Larila</p>
+            <p class="animalName">Lirili Larila</p>
             <img src="./media/Lirili_Larila.png" alt="Lirili Larila" class="animalImage">
             <p id="liriliPriceValue"></p>
             <p id="liriliCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('patapim')">
-            <p>Brr Brr Patapim</p>
+            <p class="animalName">Brr Brr Patapim</p>
             <img src="./media/patapim.png" alt="br br patapim" class="animalImage">
             <p id="patapimPriceValue"></p>
             <p id="patapimCountValue"></p>
         </div>
         <div class="animalFrame" onclick="buyAnimal('bananini')">
-            <p>Chimpanzini Bananini</p>
+            <p class="animalName">Chimpanzini Bananini</p>
             <img src="./media/Chimpanzini_Bananini.png" alt="Chimpanzini Bananini" class="animalImage">
             <p id="bananiniPriceValue"></p>
             <p id="bananiniCountValue"></p>
