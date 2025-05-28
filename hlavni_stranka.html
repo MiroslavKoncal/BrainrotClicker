@@ -4,45 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brainrot Clicker</title>
-    <link rel="icon" type="image/x-icon" href="./media/epic_logo.png">
+    <link rel="icon" type="image/x-icon" href="./media/epic_logo.png"> <!-- Odkaz na ikonu stránky -->
 </head>
 <body>
+    <style>
+        /* Výchozí barevné schéma stránky */
+        body {
+            background-color: white;
+            color: black;
+            transition: background-color 0.5s, color 0.5s; /* Hladká změna barevného schématu */
+        }
+        /* Styl pro tmavý režim */
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+        /* Styl pro tlačítka */
+        button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+    </style>
     <header>
         <nav>
-            <a href=""></a>
-            <a href=""></a>
+            <!-- Navigace - odkazy na další stránky-->
+            <a href="./index.html">Hra</a>
+            <a href="./strana2.html">Achievmenty</a>
+            <a href="./hlavni_stranka.html">Ůvodní stránka</a>
         </nav>
     </header>
     <section>
         
-        <h1>Brainrot Clicker <img src="./media/epic_logo.png" alt="logo"></h1>
-        <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clikeru.</p>
+        <h1>Brainrot Clicker <img src="./media/epic_logo.png" alt="logo"> <!-- Název hry a logo -->
+        <p>Dnes je <span id="datum"></span></p> <!-- Místo pro zobrazení aktuálního data -->
+        
+        <div>
+        <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
+        </div>
+
+    <script>
+        // Přidání posluchače událostí na tlačítko pro přepnutí barevného schématu
+        document.getElementById('temnomod').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode'); // Přepíná třídu dark-mode na <body>
+        });
+
+        // Funkce pro získání a zobrazení aktuálního data
+        function zobrazDatum() {
+            let dnes = new Date();
+            let formatovaneDatum = dnes.toLocaleDateString('cs-CZ'); // Formát českého data
+            document.getElementById('datum').textContent = formatovaneDatum; // Vložení data do HTML
+        }
+
+        zobrazDatum(); // Zavolání funkce při načtení stránky
+    </script>
+
+        <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clickeru.</p>
         <h3>Hra obsahuje:</h3>
         <ul>
-        <li>Vylepšování</li>
-        <li>Různé Brainrot postavy</li>
-        <li>Líbezné zvuky</li>
-        <li>Achievmenty</li>
+        <li>Vylepšování</li> <!-- Možnost zlepšovat schopnosti -->
+        <li>Různé Brainrot postavy</li> <!-- Rozmanité postavy ve hře -->
+        <li>Líbezné zvuky</li> <!-- Zvuky dodávající atmosféru -->
+        <li>Achievmenty</li> <!-- Odměny za dosažené milníky -->
         </ul>
     
         <article>
             <h3>Autoři:</h3>
             <div>
                 <h5>Lukáš Hegner:</h5>
-                <p>HTML</p>
+                <p>HTML</p> <!-- Odpovědný za strukturu stránky -->
             </div>
             <div>
                 <h5>Tomáš Horský:</h5>
-                <p>CSS</p>
+                <p>CSS</p> <!-- Odpovědný za design stránky -->
             </div>
             <div>
                 <h5>Miroslav Končal:</h5>
-                <p>JavaScript</p>
+                <p>JavaScript</p> <!-- Odpovědný za interaktivitu -->
             </div>
         </article>
     </section>
     <footer>
-
+        <!-- -->
     </footer>
 </body>
 </html>
