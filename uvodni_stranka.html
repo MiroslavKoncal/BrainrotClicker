@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Brainrot, Sahur, tralalero tralala, clicker, cookie clicker, hra, webová hra,">
     <meta name="author" content="Lukáš Hegner, Tomáš Horský, Miroslav Končal">
-    <meta name="description" content="Brainrot clicker, nejlepší hra nasvětě. Jestli se cheš dozvědět víc, jsi na spravném místě.">
+    <meta name="description" content="Brainrot clicker, nejlepší hra nasvětě.">
     <title>Brainrot Clicker</title>
     <link rel="icon" type="image/x-icon" href="./media/epic_logo.png"> <!-- Odkaz na ikonu stránky -->
     <link rel="stylesheet" href="./style.css">
@@ -20,6 +20,24 @@
     <header>
         <h1>Brainrot clicker</h1>
         <nav><a href="index.html">Hra</a><a href="./achivements.html">Úspěchy</a><a href="./uvodni_stranka.html">Úvod</a></nav>
+        <script>
+            // tomasovo prezentace obrazku
+            const images = [
+                "./media/sahur.png",
+                "./media/tralalero.png",
+                "./media/bombardino.png",
+                "./media/lirili.png",
+                "./media/Patapim.png",
+                "./media/chimpanz.png"
+            ];
+            let currentImageIndex = 0;
+
+            function changeImage() {
+                document.getElementById("imageDisplay").src = images[currentImageIndex];
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+            }
+            setInterval(changeImage, 5000);
+        </script>
     </header>
     <main>
         
@@ -38,6 +56,9 @@
         <li>Líbezné zvuky</li> <!-- Zvuky dodávající atmosféru -->
         <li>Achievmenty</li> <!-- Odměny za dosažené milníky -->
         </ul>
+        <div class="imageShow">
+            <img src="./media/sahur.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
+        </div>
     
         <article>
             <h3>Autoři:</h3>

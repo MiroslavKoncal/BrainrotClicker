@@ -6,6 +6,7 @@ Paleta barev:
     asparagus: #77ad78ff;
 */
 
+/* HRA */
 /* horní panel */
 
 header{
@@ -156,7 +157,7 @@ button, p{
 #descriptionText{
     margin: 15px;
     position: absolute;
-    transition: .2s;
+    transition: .5s;
     text-shadow: rgba(119, 173, 120, 1) 0px 5px 8px;
 }
 
@@ -289,4 +290,10 @@ button, p{
 .animalImage{
     height: 120px;
     object-fit: contain;
+}
+
+/* ÚVODNÍ STRANA */
+
+#imageDisplay{
+    height: 300px;
 }

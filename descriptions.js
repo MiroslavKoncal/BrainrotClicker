@@ -6,9 +6,10 @@ descriptions = {
 }
 
 function show(upgrade) {
+    document.getElementById("descriptionText").style.opacity = "1"
     document.getElementById("descriptionText").innerHTML = descriptions[upgrade]
 }
 
 function hide() {
-    document.getElementById("descriptionText").innerHTML = ""
+    document.getElementById("descriptionText").style.opacity = "0"
 }
