@@ -459,8 +459,10 @@ button, p{
 
 .achievementMenu{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .achievement{
@@ -468,11 +470,12 @@ button, p{
     width: fit-content;
     min-width: 200px;
     margin-top: 15px;
+    margin-bottom: 30px;
     border-style: solid;
     border-radius: 20px;
     border-width: 2px;
     border-color: #464f51ff;
-    justify-content: center;
+    margin-inline: 30px;
 }
 
 .achievementName{
@@ -494,7 +497,7 @@ button, p{
 }
 
 .progress{
-    background-color: #464f51ff;
+    background-color: rgb(67, 204, 67);
     border-radius: auto;
     height: 100%;
     width: 0%;

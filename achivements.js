@@ -69,7 +69,6 @@ function finishAchievement (variable, progresbar)
     if (variable === true)
     {
         progresbar.style.width = "100%";
-        progresbar.style.backgroundColor = "limegreen";
     }
 }
 
