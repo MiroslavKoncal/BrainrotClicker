@@ -67,7 +67,6 @@ body{
     text-align: center;
     justify-content: center;
     margin: 0;
-    height: 100%;
 }
 
 button, p{
@@ -304,9 +303,13 @@ button, p{
 
 /* ÚVODNÍ STRANA */
 
-main{
-    display: flex;
+.uvodniStrana{
     height: 100%;
+}
+
+.uvodniStranaMain{
+    height: 100%;
+    display: flex;
 }
 
 .informace-ukoly{
