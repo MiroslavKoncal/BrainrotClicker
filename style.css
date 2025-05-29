@@ -365,3 +365,46 @@ button, p{
     padding: 15px;
 }
 
+/* ACHIEVMENTY */
+
+.achievementMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.achievement{
+    background-color: rgb(119, 173, 120);
+    width: fit-content;
+    min-width: 200px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 2px;
+    border-color: #464f51ff;
+}
+
+.achievementName{
+    padding: 5px;
+    margin: 0px;
+}
+
+.achievementDescription{
+    padding: 5px;
+    margin: 0px;
+}
+
+.progressBar{
+    border-style: solid;
+    border-color: #464f51ff;
+    border-width: 2px 0px 2px 0px;
+    height: 1em;
+    background-color: #7dba84ff;
+}
+
+.progress{
+    background-color: #464f51ff;
+    border-radius: auto;
+    height: 100%;
+    width: 0%;
+}
