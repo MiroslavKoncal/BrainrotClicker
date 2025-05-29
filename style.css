@@ -211,6 +211,7 @@ button, p{
     position: absolute;
     transition: .5s;
     text-shadow: rgba(119, 173, 120, 1) 0px 5px 8px;
+    user-select: none;
 }
 
 /* tlačítko */
@@ -374,6 +375,7 @@ button, p{
 
 .informace{
     width: 100%;
+    height: 100%;
     border-style: solid;
     border-width: 2px;
     border-radius: 30px;
@@ -383,8 +385,9 @@ button, p{
     padding-left: 15px;
 }
 
-.ukoly{
+.dolniDiv{
     width: 100%;
+    height: 100%;
     border-style: solid;
     border-width: 2px;
     border-radius: 30px;
@@ -412,6 +415,24 @@ button, p{
     border-radius: 15px;
     border-color: #464f51ff;
     margin: 15px;
+    padding: 15px;
+}
+
+#temnomod{
+    background-color: #7dba84ff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #464f51ff;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.ukoly{
+    margin: 15px;
+    float: right;
+}
+
+.autori{
     padding: 15px;
 }
 
