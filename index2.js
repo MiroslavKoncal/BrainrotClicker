@@ -169,20 +169,33 @@ function saveData ()
 
 
 // vyčistí data (využítí prestige a kompletní reset)
-function clearData(clearPrestige = false) {
+function clearData(clearPrestige = false, clearAchievements = false) {
     const keysToKeep = [
         "achive10k", "achive100k", "achive1m", "achive10m", "achive1b",
         "achiveTung", "achiveTrala", "achiveLirili", "achiveBombardino",
         "achivePatapim", "achiveBananini", "achiveClick", "achiveCrit",
         "achiveCritValue", "achivePrestige"
     ];
+    let resetSound = new Audio("./media/zvuky/reset.mp3");
 
-    // Smazání localStorage kromě výjimek
-    Object.keys(localStorage).forEach(key => {
-        if (!keysToKeep.includes(key)) {
+    if (clearAchievements === true)
+    {
+        Object.keys(localStorage).forEach(key =>
+        {
             localStorage.removeItem(key);
-        }
-    });
+            resetSound.play();
+        })
+    }
+    else
+    {
+        Object.keys(localStorage).forEach(key => {
+            if (!keysToKeep.includes(key)) {
+                localStorage.removeItem(key);
+            }
+        });
+    }
+    // Smazání localStorage kromě výjimek
+
 
     // Reset skóre
     score = 0;
@@ -197,7 +210,15 @@ function clearData(clearPrestige = false) {
     for (let upgrade in upgrades) {
         if (upgrade === "prestige" && !clearPrestige) continue;
 
-        upgrades[upgrade].value = 1;
+        if (upgrade === "crit")
+        {
+            upgrades[upgrade].value = 0;
+        }
+        else
+        {
+            upgrades[upgrade].value = 1;
+        }
+
         upgrades[upgrade].price = upgrades[upgrade].basePrice;
     }
 
@@ -403,7 +424,7 @@ function prestige ()
     }
     else
     {
-        console.log(`cena ${upgrades["prestige"].price}`);
+        cantBuySound.play();
     }
 }
 
