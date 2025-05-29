@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="Brainrot, Sahur, tralalero tralala, clicker, cookie clicker, hra, webová hra,">
     <meta name="author" content="Lukáš Hegner, Tomáš Horský, Miroslav Končal">
-    <meta name="description" content="Brainrot clicker, nejlepší hra nasvětě.">
+    <meta name="description" content="Brainrot clicker, nejlepší hra na světě.">
     <title>Brainrot Clicker</title>
     <link rel="icon" type="image/x-icon" href="./media/epic_logo.png"> <!-- Odkaz na ikonu stránky -->
     <link rel="stylesheet" href="./style.css">
@@ -18,6 +18,7 @@
         }
     </style>
     <header>
+        <img src="./media/epic_logo.png" alt="logo" id="logo">
         <h1>Brainrot clicker</h1>
         <nav><a href="index.html">Hra</a><a href="./achivements.html">Úspěchy</a><a href="./uvodni_stranka.html">Úvod</a></nav>
         <script>
@@ -42,49 +43,46 @@
         </script>
     </header>
     <main>
-        <div class="containerOne">
-            <div class="nazevLogo">
-                <h1>Brainrot Clicker</h1>
-                <img src="./media/epic_logo.png" alt="logo" id="logo"> <!-- Název hry a logo -->
-            </div>
-            <div class="informace">
-                <p>Dnes je <span id="datum"></span></p> <!-- Místo pro zobrazení aktuálního data -->
-                <div>
-                    <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
-                </div>
-                <div>
-                    <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clickeru.</p>
-                    <h3>Hra obsahuje:</h3>
-                    <ul>
-                        <li>Vylepšování</li> <!-- Možnost zlepšovat schopnosti -->
-                        <li>Různé Brainrot postavy</li> <!-- Rozmanité postavy ve hře -->
-                        <li>Líbezné zvuky</li> <!-- Zvuky dodávající atmosféru -->
-                        <li>Achievmenty</li> <!-- Odměny za dosažené milníky -->
-                    </ul>
-                </div>
-            
-                <article>
-                    <h3>Autoři:</h3>
-                    <div>
-                        <h5>Lukáš Hegner:</h5>
-                        <p>HTML</p> <!-- Odpovědný za strukturu stránky -->
-                    </div>
-                    <div>
-                        <h5>Tomáš Horský:</h5>
-                        <p>CSS</p> <!-- Odpovědný za design stránky -->
-                    </div>
-                    <div>
-                        <h5>Miroslav Končal:</h5>
-                        <p>JavaScript</p> <!-- Odpovědný za interaktivitu -->
-                    </div>
-                </article>
-            </div>
-            <div class="imageShow">
-                <img src="./media/chimpanz.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
-                <p id="imageDescription">Chimpanzini Bananini, zábavná postava, která nás vždy rozesměje</p>
-            </div>
+        <div class="informace">
+            <h2>Brainrot Clicker</h2>
+            <article>
+                <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clickeru.</p>
+                <h3>Hra obsahuje:</h3>
+                <ul>
+                    <li>Vylepšování</li>
+                    <li>Různé Brainrot postavy</li>
+                    <li>Líbezné zvuky</li>
+                    <li>Achievmenty</li>
+                </ul>
+            </article>
         </div>
+        <div class="ukoly">
+            <p>Dnes je <span id="datum"></span></p> <!-- Zobrazuje aktuální datum -->
+            <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
         
+            <article>
+                <h3>Autoři:</h3>
+                <div>
+                    <h4>Lukáš Hegner</h4>
+                    <p>HTML</p>
+                    <p>Odpovědný za strukturu stránky</p>
+                </div>
+                <div>
+                    <h4>Tomáš Horský</h4>
+                    <p>CSS</p>
+                    <p>Odpovědný za design stránky</p>
+                </div>
+                <div>
+                    <h4>Miroslav Končal</h4>
+                    <p>JavaScript</p>
+                    <p>Odpovědný za interaktivitu</p>
+                </div>
+            </article>
+        </div>
+        <div class="imageShow">
+            <img src="./media/chimpanz.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
+            <p id="imageDescription">Chimpanzini Bananini, zábavná postava, která nás vždy rozesměje</p>
+        </div>
         
     </main>
     <footer>
