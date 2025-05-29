@@ -23,6 +23,11 @@ header{
     border-style: solid;
 }
 
+#logo{
+    float: left;
+    height: auto;
+}
+
 h1{
     font-size: 28px;
     margin-left: 10px;
@@ -294,40 +299,41 @@ button, p{
 
 /* ÚVODNÍ STRANA */
 
-.containerOne{
-    display: flex;
-    justify-content: space-between;
+main{
+    justify-content: center;
+}
+
+.informace{
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 30px;
+    border-color: #464f51ff;
 }
 
 .nazevLogo{
-    background-color: #7dba84ff;
     border-color: #464f51ff;
     border-style: solid;
     border-width: 2px;
     border-radius: 15px;
     margin: 15px;
-    height: fit-content;
-}
-
-#logo{
-    float: left;
 }
 
 .imageShow{
-    background-color: #7dba84ff;
     float: right;
     border-color: #464f51ff;
     border-style: solid;
     border-width: 2px;
     border-radius: 15px;
     margin: 15px;
-    height: fit-content;
 }
 
 #imageDisplay{
-    height: 300px;
+    background-color: rgb(125, 186, 132);
+    height: auto;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: #464f51ff;
+    margin: 15px;
 }
 
-.informace{
-    text-align: left;
-}
