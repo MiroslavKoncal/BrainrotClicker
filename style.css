@@ -73,29 +73,67 @@ button, p{
     font-size: medium;
 }
 
-#score {
-    font-size: 24px;
+.scoreContainer{
     font-weight: bold;
+    width: fit-content;
+    margin: auto;
+}
+
+.scoreTitle{
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+
+#score {
+    font-size: 1em;
+    margin-block: 0.2em;
+}
+
+.oddelovac{
+    width: 100%;
+    border-style: solid;
+    border-color: #464f51ff;
+    margin-block: 0.2em;
+}
+
+.cpsTitle{
+    font-size: 1em;
+    margin: 0em;
+    margin-block: 0.5em;
 }
 
 #cps {
     font-size: 18px;
-    font-weight: bold;
+    margin: 0px;
 }
 
 .mainContainer {
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-block: 280px;
+    top: 50%;
+
 }
 
 .leftPanel{
+    position: fixed;
     flex: 1;
     text-align: left;
 }
 
+.buttonContainer {
+    position: fixed;
+    flex: 0 0 auto;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .rightPanel {
+    position: fixed;
+    right: 0;
     flex: 1;
     text-align: center;
 }
@@ -191,11 +229,6 @@ button, p{
 
 #mainButton:active{
     transform: scale(1.1);
-}
-
-.buttonContainer {
-    flex: 0 0 auto;
-    text-align: center;
 }
 
 /* zvukove menu */
