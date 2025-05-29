@@ -292,6 +292,10 @@ function buyAnimal(animalKey)
 
         updateScoreDisplay();
     }
+    else
+    {
+        cantBuySound.play()
+    }
 }
 
 
