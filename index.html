@@ -18,7 +18,7 @@
             <h2 class="scoreTitle">Skóre</h2>
             <p id="score"></p>
             <hr class="oddelovac">
-            <p class="cpsTitle">Kliků za sekundu:</p>
+            <p class="cpsTitle">Kliky za sekundu</p>
             <p id="cps">0</p>
         </div>
     </div>
@@ -29,28 +29,28 @@
                 <div class="upgradeFrame" onmouseenter="show('clickPower')" onclick="upgrade('click')">
                     <p id="clickValue"></p>
                     <hr>
-                    <p>Výdělek z kliknutí</p>
+                    <p class="upgradeName">Výdělek z kliknutí</p>
                     <hr>
                     <p id="clickPrice"></p>
                 </div>
                 <div class="upgradeFrame" onmouseenter="show('criticalChance')" onclick="upgrade('crit')">
                     <p id="critValue"></p>
                     <hr>
-                    <p>Šance na kritický zásah</p>
+                    <p class="upgradeName">Šance na kritický zásah</p>
                     <hr>
                     <p id="critPrice"></p>
                 </div>
                 <div class="upgradeFrame" onmouseenter="show('criticalPower')" onclick="upgrade('critValue')">
                     <p id="critValueValue"></p>
                     <hr>
-                    <p>Výdělek z kritického zásahu</p>
+                    <p class="upgradeName">Výdělek z kritického zásahu</p>
                     <hr>
                     <p id="critValuePrice"></p>
                 </div>
                 <div class="upgradeFrame" onmouseenter="show('prestige')" onclick="prestige()">
                     <p id="prestigeValue"></p>
                     <hr>
-                    <p>Prestiž</p>
+                    <p class="upgradeName">Prestiž</p>
                     <hr>
                     <p id="prestigePrice"></p>
                 </div>
@@ -61,7 +61,7 @@
                     "clickPower": "Zvětší počet kliků za klik.",
                     "criticalChance": "Zvětší šanci na kritický zásah.",
                     "criticalPower": "Zvětší počet kliků u kritického zásahu.",
-                    "prestige": "Restartuje postup, ale zvyší skóre za klik a zvířátka."
+                    "prestige": "Vymaže postup, ale zvýší skóre za klik a zvířátka."
                 }
                 
                 function show(upgrade) {
@@ -76,8 +76,15 @@
         </div>
         
         <div class="buttonContainer">
-            <button id="mainButton" onclick="callClicker()"></button>
+            <button id="mainButton" onclick="callClicker()"><img src="./media/click.png" alt="ukazatel kliknutí" id="ukazatel"></button>
         </div>
+        <script>setTimeout(function() {
+            document.getElementById("ukazatel").style.opacity = "0"
+            }, 3000)
+            setTimeout(function() {
+            document.getElementById("mainButton").innerHTML = ""
+            }, 4000)
+        </script>
 
         <div class="rightPanel">
             <div class="soundMenu">

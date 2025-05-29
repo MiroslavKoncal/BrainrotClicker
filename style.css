@@ -80,13 +80,13 @@ button, p{
 }
 
 .scoreTitle{
-    font-size: 2em;
+    font-size: 1em;
     font-weight: bold;
     margin-bottom: 0.2em;
 }
 
 #score {
-    font-size: 1em;
+    font-size: 2em;
     margin-block: 0.2em;
 }
 
@@ -201,6 +201,11 @@ button, p{
     margin-inline: 10px;
 }
 
+.upgradeName{
+    font-size: 1em;
+    font-weight: bold;
+}
+
 #descriptionText{
     margin: 15px;
     position: absolute;
@@ -212,8 +217,8 @@ button, p{
 
 #mainButton{
     background-color: #7dba84ff;
-    width: 300px;
-    height: 300px;
+    width: 15em;
+    height: 15em;
     border-radius: 100%;
     border-color: #464f51ff;
     border-style: solid;
@@ -229,6 +234,14 @@ button, p{
 
 #mainButton:active{
     transform: scale(1.1);
+}
+
+#ukazatel{
+    position: absolute;
+    width: 6em;
+    transform: translateX(-35%) translateY(-10%);
+    opacity: 1;
+    transition: 1s;
 }
 
 /* zvukove menu */
@@ -285,9 +298,9 @@ button, p{
     display: flex;
     justify-content: space-evenly;
     width: fit-content;
-    border-radius: 30px 30px 0px 0px;
+    border-radius: 1em 1em 0em 0em;
     border-color: #464f51ff;
-    border-width: 2px 2px 0px 2px;
+    border-width: 0.15em 0.15em 0em 0.15em;
     border-style: solid;
     user-select: none;
     margin-inline: auto;
@@ -304,12 +317,12 @@ button, p{
     border-width: 2px;
     border-style: solid;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
-    width: 150px;
+    width: 7em;
     align-content: end;
     transition: .2s;
 }
 .animalFrame:first-child{
-    margin-left: 15px;
+    margin-left: 0.5em;
 }
 
 .animalFrame:hover{
@@ -322,7 +335,7 @@ button, p{
 }
 
 .animalFrame > p{
-    margin: 5px;
+    margin: 0.2em;
 }
 
 .animalName{
@@ -330,7 +343,7 @@ button, p{
 }
 
 .animalImage{
-    height: 120px;
+    height: 6em;
     object-fit: contain;
 }
 
@@ -412,14 +425,15 @@ button, p{
     min-width: 200px;
     margin-top: 15px;
     border-style: solid;
-    border-radius: 15px;
+    border-radius: 20px;
     border-width: 2px;
     border-color: #464f51ff;
+    justify-content: center;
 }
 
 .achievementName{
-    padding: 5px;
-    margin: 0px;
+    padding: 0.1em;
+    margin: 0.2em;
 }
 
 .achievementDescription{
