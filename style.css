@@ -211,6 +211,7 @@ button, p{
     position: absolute;
     transition: .5s;
     text-shadow: rgba(119, 173, 120, 1) 0px 5px 8px;
+    user-select: none;
 }
 
 /* tlačítko */
@@ -374,6 +375,7 @@ button, p{
 
 .informace{
     width: 100%;
+    height: 100%;
     border-style: solid;
     border-width: 2px;
     border-radius: 30px;
@@ -383,8 +385,9 @@ button, p{
     padding-left: 15px;
 }
 
-.ukoly{
+.dolniDiv{
     width: 100%;
+    height: 100%;
     border-style: solid;
     border-width: 2px;
     border-radius: 30px;
@@ -413,6 +416,43 @@ button, p{
     border-color: #464f51ff;
     margin: 15px;
     padding: 15px;
+}
+
+#temnomod{
+    background-color: #7dba84ff;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #464f51ff;
+    border-radius: 15px;
+    padding: 15px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+#temnomod:hover{
+    background-color: #77ad78ff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
+}
+
+#temnomod:active{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px inset, rgba(0, 0, 0, 0.2) 0px 10px 5px inset;
+}
+
+.ukoly{
+    margin: 15px;
+    float: right;
+}
+
+.autori{
+    padding: 15px;
+}
+
+.uvodFooter{
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: rgba(119, 173, 120, 1) 0px 0px 20px, rgba(119, 173, 120, 1) 0px 0px 20px, rgba(119, 173, 120, 1) 0px 0px 20px;
 }
 
 /* ACHIEVMENTY */

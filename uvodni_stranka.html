@@ -25,8 +25,8 @@
             const images = [
                 {"path":"./media/sahur.png", "description":"Tung Tung Tung Sahur je špalek s pálkou."},
                 {"path":"./media/tralalero.png", "description":"Tralalero Tralala je žralok s teniskami."},
-                {"path":"./media/bombardino.png", "description":"Bombardiro Crocodilo je bambardérový krokodýl."},
-                {"path":"./media/lirili.png", "description":"Lirili Larila je kaktusový slon."},
+                {"path":"./media/bombardino.png", "description":"Bombardiro Crocodilo je bombardérový krokodýl."},
+                {"path":"./media/lirili.png", "description":"Lirili Larila je kaktusový slon s pantoflemi."},
                 {"path":"./media/Patapim.png", "description":"Brr Brr Patapim je zarostlá opice s obřími nohami."},
                 {"path":"./media/chimpanz.png", "description":"Chimpanzini Bananini je banánový šimpanz."}
             ]
@@ -56,38 +56,36 @@
                     </ul>
                 </article>
             </div>
-            <div class="ukoly">
-                <p>Dnes je <span id="datum"></span></p> <!-- Zobrazuje aktuální datum -->
-                <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
-            
-                <article>
-                    <h3>Autoři:</h3>
+            <div class="dolniDiv">
+                <div class="ukoly"> <!-- Zobrazuje aktuální datum -->
+                    <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
+                </div>
+                <article class="autori">
+                    <h3>Autoři</h3>
                     <div>
                         <h4>Lukáš Hegner</h4>
                         <p>HTML</p>
-                        <p>Odpovědný za strukturu stránky</p>
                     </div>
                     <div>
                         <h4>Tomáš Horský</h4>
                         <p>CSS</p>
-                        <p>Odpovědný za design stránky</p>
                     </div>
                     <div>
                         <h4>Miroslav Končal</h4>
                         <p>JavaScript</p>
-                        <p>Odpovědný za interaktivitu</p>
                     </div>
                 </article>
             </div>
         </div>
         
         <div class="imageShow">
-            <p id="imageDescription">Chimpanzini Bananini, zábavná postava, která nás vždy rozesměje</p>
+            <p id="imageDescription">Chimpanzini Bananini je banánový šimpanz.</p>
             <img src="./media/chimpanz.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
         </div>
         
     </main>
-    <footer>
+    <footer class="uvodFooter">
+        <p>Dnes je <span id="datum"></span></p>
         <script src="./uvodni_str.js"></script>
     </footer>
 </body>
