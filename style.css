@@ -226,14 +226,17 @@ button, p{
     cursor: pointer;
     transition: 0.5s;
     transition-timing-function: ease-out;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
 }
 
 #mainButton:hover{
     transform: scale(1.02);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 7px;
 }
 
 #mainButton:active{
     transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 20px;
 }
 
 #ukazatel{
@@ -298,9 +301,9 @@ button, p{
     display: flex;
     justify-content: space-evenly;
     width: fit-content;
-    border-radius: 1em 1em 0em 0em;
+    border-radius: 30px 30px 0em 0em;
     border-color: #464f51ff;
-    border-width: 0.15em 0.15em 0em 0.15em;
+    border-width: 2px 2px 0px 2px;
     border-style: solid;
     user-select: none;
     margin-inline: auto;
@@ -322,7 +325,7 @@ button, p{
     transition: .2s;
 }
 .animalFrame:first-child{
-    margin-left: 0.5em;
+    margin-left: 15px;
 }
 
 .animalFrame:hover{
