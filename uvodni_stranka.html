@@ -18,8 +18,7 @@
         }
     </style>
     <header>
-        <img src="./media/epic_logo.png" alt="logo" id="logo">
-        <h1>Brainrot clicker</h1>
+        <div id="title"><img src="./media/epic_logo.png" alt="logo" id="logo"><h1>Brainrot clicker</h1></div>
         <nav><a href="index.html">Hra</a><a href="./achivements.html">Úspěchy</a><a href="./uvodni_stranka.html">Úvod</a></nav>
         <script>
             // tomasovo prezentace obrazku
@@ -43,45 +42,48 @@
         </script>
     </header>
     <main>
-        <div class="informace">
-            <h2>Brainrot Clicker</h2>
-            <article>
-                <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clickeru.</p>
-                <h3>Hra obsahuje:</h3>
-                <ul>
-                    <li>Vylepšování</li>
-                    <li>Různé Brainrot postavy</li>
-                    <li>Líbezné zvuky</li>
-                    <li>Achievmenty</li>
-                </ul>
-            </article>
+        <div class="informace-ukoly">
+            <div class="informace">
+                <h2>Brainrot Clicker</h2>
+                <article>
+                    <p>Pro náš projekt jsme se rozhodli vytvořit hru jménem Brainrot Clicker. Hra funguje na principu klasického cookie clickeru.</p>
+                    <h3>Hra obsahuje:</h3>
+                    <ul>
+                        <li>Vylepšování</li>
+                        <li>Různé Brainrot postavy</li>
+                        <li>Líbezné zvuky</li>
+                        <li>Achievmenty</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="ukoly">
+                <p>Dnes je <span id="datum"></span></p> <!-- Zobrazuje aktuální datum -->
+                <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
+            
+                <article>
+                    <h3>Autoři:</h3>
+                    <div>
+                        <h4>Lukáš Hegner</h4>
+                        <p>HTML</p>
+                        <p>Odpovědný za strukturu stránky</p>
+                    </div>
+                    <div>
+                        <h4>Tomáš Horský</h4>
+                        <p>CSS</p>
+                        <p>Odpovědný za design stránky</p>
+                    </div>
+                    <div>
+                        <h4>Miroslav Končal</h4>
+                        <p>JavaScript</p>
+                        <p>Odpovědný za interaktivitu</p>
+                    </div>
+                </article>
+            </div>
         </div>
-        <div class="ukoly">
-            <p>Dnes je <span id="datum"></span></p> <!-- Zobrazuje aktuální datum -->
-            <button id="temnomod">Dark mode</button> <!-- Tlačítko pro přepínání tmavého režimu -->
         
-            <article>
-                <h3>Autoři:</h3>
-                <div>
-                    <h4>Lukáš Hegner</h4>
-                    <p>HTML</p>
-                    <p>Odpovědný za strukturu stránky</p>
-                </div>
-                <div>
-                    <h4>Tomáš Horský</h4>
-                    <p>CSS</p>
-                    <p>Odpovědný za design stránky</p>
-                </div>
-                <div>
-                    <h4>Miroslav Končal</h4>
-                    <p>JavaScript</p>
-                    <p>Odpovědný za interaktivitu</p>
-                </div>
-            </article>
-        </div>
         <div class="imageShow">
-            <img src="./media/chimpanz.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
             <p id="imageDescription">Chimpanzini Bananini, zábavná postava, která nás vždy rozesměje</p>
+            <img src="./media/chimpanz.png" alt="Zobrazovaná brainrot postava" id="imageDisplay">
         </div>
         
     </main>
