@@ -425,6 +425,17 @@ button, p{
     border-color: #464f51ff;
     border-radius: 15px;
     padding: 15px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+#temnomod:hover{
+    background-color: #77ad78ff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px;
+}
+
+#temnomod:active{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 5px inset, rgba(0, 0, 0, 0.2) 0px 10px 5px inset;
 }
 
 .ukoly{
@@ -434,6 +445,14 @@ button, p{
 
 .autori{
     padding: 15px;
+}
+
+.uvodFooter{
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: rgba(119, 173, 120, 1) 0px 0px 20px, rgba(119, 173, 120, 1) 0px 0px 20px, rgba(119, 173, 120, 1) 0px 0px 20px;
 }
 
 /* ACHIEVMENTY */
