@@ -212,13 +212,12 @@ function clearData(clearPrestige = false, clearAchievements = false) {
 
         if (upgrade === "crit")
         {
-            upgrades[upgrade].value = 0;
+            upgrades[upgrade].value = 100;
         }
         else
         {
             upgrades[upgrade].value = 1;
         }
-
         upgrades[upgrade].price = upgrades[upgrade].basePrice;
     }
 
@@ -387,6 +386,9 @@ function upgrade (key)
             if (upgrades[key].value < 100)
             {
                 upgrades[key].value += upgrades["crit"].valueMultiplier;
+                score -= upgrades[key].price;
+                upgrades[key].price = priceChange(upgrades[key].price, upgrades[key].priceMultiplier);
+                buySound.play();
             }
             else
             {
@@ -398,10 +400,11 @@ function upgrade (key)
         {
             // ostatní upgrady násobí svou hodnotu násobičem
             upgrades[key].value = Math.round(upgrades[key].value * upgrades[key].valueMultiplier);
+            score -= upgrades[key].price;
+            upgrades[key].price = priceChange(upgrades[key].price, upgrades[key].priceMultiplier);
+            buySound.play();
         }
-        score -= upgrades[key].price;
-        upgrades[key].price = priceChange(upgrades[key].price, upgrades[key].priceMultiplier);
-        buySound.play();
+
     }
     else
     {
