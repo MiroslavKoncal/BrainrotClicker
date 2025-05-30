@@ -212,7 +212,7 @@ function clearData(clearPrestige = false, clearAchievements = false) {
 
         if (upgrade === "crit")
         {
-            upgrades[upgrade].value = 100;
+            upgrades[upgrade].value = 0;
         }
         else
         {
